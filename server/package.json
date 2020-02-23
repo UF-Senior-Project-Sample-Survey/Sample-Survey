@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "concurrently \\\"nodemon server.js\\\" \\\"cd ../client && npm run start\\\"",
     "build": "cd ../client && npm build",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "client-install": "npm install --prefix client",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client"
   },
   "repository": {
     "type": "git",
