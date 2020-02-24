@@ -1,35 +1,45 @@
 {
-  "name": "react_template_repo",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "name": "sample-survey",
+  "description": "This project does not have a mongoDB connection setup.\r - local development: create a config file (make sure to name it config.js) in the config folder, which exports your db.uri connection. An example is provided, config/config.example.js. This file will be ignored by git so your db credentials will be kept safe when the app is deployed.",
   "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "mocha server/tests",
-    "install-all": "concurrently \"npm install\" \"cd client && npm install\"",
-    "client": "cd client && npm start",
-    "server": "nodemon server/server.js",
-    "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run start\"",
-    "build": "cd client && npm build",
     "start": "node server/server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "server": "nodemon server/server.js",
+    "install-all": "concurrently \"npm install\" \"cd client && npm install\"",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/UFWebApps/React_Template_Repo.git"
+    "url": "git+https://github.com/UF-Senior-Project-Sample-Survey/Sample-Survey.git"
   },
-  "keywords": [],
-  "author": "Dakota Rennemann",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UF-Senior-Project-Sample-Survey/Sample-Survey/issues"
+  },
+  "homepage": "https://github.com/UF-Senior-Project-Sample-Survey/Sample-Survey#readme",
   "dependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.10",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
     "express": "^4.17.1",
-    "mongoose": "^5.7.1",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.1",
     "morgan": "^1.9.1",
-    "should": "^13.2.3",
-    "supertest": "^4.0.2",
-    "mocha": "^6.2.1"
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^12.2.0"
   },
-  "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme"
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
