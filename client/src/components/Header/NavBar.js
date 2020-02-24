@@ -1,28 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './NavBar.css';
+import {Link} from 'react-router-dom';
 
-const NavBar = () => {
-    return (
-        <div className = "header">
-            {/* Logo */}
-            <Link className = "nav-title" to="/">
-                <img className = "nav-logo" src={ "/logo192.png" } alt="React logo" />
-            </Link>
+//https://www.w3schools.com/css/css_navbar.asp
+class NavBar extends React.Component {
+    render(){
 
-            {/* Page Links */}
-            <div className = "nav-items">
-                <Link className = "nav-link" to='/Home'>Home</Link>
-                <Link className = "nav-link" to='/Register'>Extra Page</Link>
-                <a className = "nav-link" target='_blank' rel="noopener noreferrer" href="https://reactjs.org/docs/getting-started.html">
-                    React Docs
+        return (
+        <nav className="z-depth-0">
+            <div className="nav-wrapper white">
+                <a href="#" class="logo"> <Link
+                        to="/"
+                        style={{
+                            fontFamily: "Verdana"
+                        }}
+                        className="col s5 brand-logo left black-text"
+                    >
+                            Sample Survey
+                        </Link>
                 </a>
-                <a className = "nav-link" target="_blank" rel="noopener noreferrer" href="https://reactjs.org/tutorial/tutorial.html">React Tutorial</a>
-                <a className = "nav-link" target="_blank" rel="noopener norefferer" href="https://nodejs.org/en/docs/">Node Docs</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                </ul>
             </div>
-
-        </div>
-    )
-};
+      </nav>
+        )
+    }
+}
 
 export default NavBar;
