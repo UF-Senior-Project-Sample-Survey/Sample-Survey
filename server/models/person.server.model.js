@@ -3,7 +3,10 @@ var mongoose = require('mongoose'),
 
 var personSchema = new Schema({
 
-    name: {type: String, required: true, unique: true},
+    name: {
+        first:{type: String, required: true},
+        last:{type: String, required: true}
+    },
     age: {type: Number, required: true},
     gender: {type: String, required: true},   
     maritalStatus: {type: String, required: true},
