@@ -1,22 +1,28 @@
-import React from 'react';
-import { Route, Switch, Redirect  } from 'react-router-dom';
-import Home from "./views/Home/Home";
+import React, {Component} from 'react';
+import { Route, Switch, Redirect, BrowserRouter as Router} from 'react-router-dom';
 import NotFound from "./views/NotFound";
-import NavBar from "./components/Header/NavBar";
+import Navbar from "./components/Header/NavBar";
+import Landing from "./components/Landing";
+import Register from "./components/Login/Register";
+import Login from "./components/Login/Login";
+import { Provider } from "react-redux";
+import store from "./store";
 
-const App = () => {
-  return (
-    <div>
-      <NavBar />
-      <Switch>
-        <Route exact path="/Home" component={Home} />
-        <Route exact path="/">
-          <Redirect to="/Home" />
-        </Route>
-        <Route component={NotFound}/>
-      </Switch>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Provider store = {store}>
+        <Router>
+            <div classname = "App">
+              <Navbar/>
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+            </div>
+          </Router>
+        </Provider>
+    );
+  }
 }
 
 export default App;
