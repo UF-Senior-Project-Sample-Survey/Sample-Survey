@@ -12,7 +12,7 @@ class NavBar extends React.Component {
                 <a href="#" class="logo"> <Link
                         to="/"
                         style={{
-                            fontFamily: "Verdana"
+                            //fontFamily: "Robato",
                         }}
                         className="col s5 brand-logo left black-text"
                     >
