@@ -6,9 +6,13 @@ import { Route, Redirect, Switch, BrowserRouter as Router} from 'react-router-do
 import Landing from "./components/Landing";
 import Register from "./components/Login/Register";
 import Login from "./components/Login/Login";
+import Home from "./views/Home";
+import CreateSample from "./views/CreateSample";
+import About from "./views/About";
 import { Provider } from "react-redux";
 import store from "./store";
 import NotFound from "./views/NotFound";
+import PrivateRoute from "./components/Authenticate/PrivateRoute";
 
 // check for a token to keep the user logged in
 if (localStorage.jwtToken) {
@@ -38,6 +42,9 @@ class App extends Component {
                 <Route exact path="/">
                   <Redirect to="/landing" />
                 </Route>
+                <PrivateRoute exact path="/home" component={Home} />
+                <PrivateRoute exact path="/createsample" component={CreateSample} />
+                <PrivateRoute exact path="/about" component={About} />
                 <Route component={NotFound}/>
               </Switch>
             </div>
