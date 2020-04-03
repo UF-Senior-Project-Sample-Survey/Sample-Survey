@@ -13,7 +13,7 @@ class Landing extends Component {
           <div className="row">
             <div className="h1 col-12 s12 center-align black-text">
               Create your own sample survey!
-              <div class="section-body"> 
+              <div className="section-body"> 
                 Design surveys using our database of questions. Choose a sampling method, and get a dataset of responses representing a sample.
                 <br/>
                 <br/>
