@@ -9,7 +9,7 @@ module.exports = function validateLoginInput(data) {
 
 
     if(Validator.isEmpty(data.email)) {
-        errors.username = "Please fill Email field";
+        errors.email = "Please fill Email field";
     } else if (!Validator.isEmail(data.email)) {
         errors.email = "Email is invalid";
     }

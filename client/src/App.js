@@ -7,12 +7,13 @@ import Landing from "./components/Landing";
 import Register from "./components/Login/Register";
 import Login from "./components/Login/Login";
 import Home from "./views/Home";
-import CreateSample from "./views/CreateSample";
+import CreateSurvey from "./views/CreateSurvey";
 import About from "./views/About";
 import { Provider } from "react-redux";
 import store from "./store";
 import NotFound from "./views/NotFound";
 import PrivateRoute from "./components/Authenticate/PrivateRoute";
+import Sampling from "./views/Sampling";
 
 // check for a token to keep the user logged in
 if (localStorage.jwtToken) {
@@ -43,7 +44,8 @@ class App extends Component {
                   <Redirect to="/landing" />
                 </Route>
                 <PrivateRoute exact path="/home" component={Home} />
-                <PrivateRoute exact path="/createsample" component={CreateSample} />
+                <PrivateRoute exact path="/createsurvey" component={CreateSurvey}/>
+                <PrivateRoute exact path="/samplingmethods" component={Sampling} />
                 <PrivateRoute exact path="/about" component={About} />
                 <Route component={NotFound}/>
               </Switch>

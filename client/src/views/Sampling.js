@@ -1,7 +1,7 @@
 import NavBar from "../components/Header/NavBar";
 import React, {Component} from 'react';
 
-class CreateSample extends Component {
+class Sampling extends Component {
     render() {
       return (
         <div>
@@ -11,4 +11,4 @@ class CreateSample extends Component {
     }
   }
 
-  export default CreateSample;
+  export default Sampling;

@@ -4,17 +4,17 @@ const isEmpty = require("is-empty");
 module.exports = function validateRegistrationInput(data) {
     let errors = {};
 
-    data.username = !isEmpty(data.username) ? data.username: "";
+    data.name = !isEmpty(data.name) ? data.name: "";
     data.email = !isEmpty(data.email) ? data.email: "";
     data.password = !isEmpty(data.password) ? data.password: "";
     data.password2 = !isEmpty(data.password2) ? data.password2: "";
 
-    if(Validator.isEmpty(data.username)) {
-        errors.username = "Please fill Username field";
+    if(Validator.isEmpty(data.name)) {
+        errors.name = "Please fill name field";
     }
 
     if(Validator.isEmpty(data.email)) {
-        errors.username = "Please fill Email field";
+        errors.name = "Please fill Email field";
     } else if (!Validator.isEmail(data.email)) {
         errors.email = "Email is invalid";
     }
