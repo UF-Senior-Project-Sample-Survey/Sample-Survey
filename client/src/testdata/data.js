@@ -5,13 +5,13 @@
 
 export default [
     {
-      id: -1,
+      id: 0,
       text: 'What is your name?'
     }, {
-      id: -2,
+      id: 1,
       text: 'What is your age (in years)?'
     }, {
-      id: -3,
+      id: 2,
       text: 'What is your gender?'
     }
   ]
