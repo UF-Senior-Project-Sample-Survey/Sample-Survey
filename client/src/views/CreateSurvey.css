@@ -5,6 +5,7 @@
     font-size: xx-large;
     font-weight: 600;
     width: 90vw;
+    min-width: 600px;
 }
 
 .container .bottombar {
@@ -33,4 +34,8 @@
     background-color: rgb(24, 122, 207);
     box-shadow: 0 5px rgb(158, 158, 158);
     transform: translateY(2px);
+  }
+
+  .container .design {
+      margin-top: 40px;
   }

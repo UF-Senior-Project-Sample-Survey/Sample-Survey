@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import '../components/CreateSurvey/QuestionList.css';
 import './CreateSurvey.css';
 import QuestionList from '../components/CreateSurvey/QuestionList';
+import SurveyDesign from '../components/CreateSurvey/SurveyDesign';
 
 import data from '../testdata/data'; // testing data, will use actual questions in database for this
 
@@ -11,34 +12,41 @@ class CreateSurvey extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedCategories: []
+      selectedCategories: [],
+      currentStep: 1,
+      numParticipants: 0,
+      samplingMethod: 'SRS',
+      excelName: 'dataset'
     }
   }
 
+
   continueSurvey() {
-    console.log(this.state.selectedCategories)
+    var nextStep = this.state.currentStep + 1;
+    this.setState({
+      currentStep: nextStep
+    })
   }
 
   addCategory(id) {
-    var list;
-    if(!this.state.selectedCategories.includes(id)) {
-      list = this.state.selectedCategories.concat([id])
-    } else {
-      for (var i = 0; i < this.state.selectedCategories.length; i++) {
-        if (this.state.selectedCategories[i] === id) {
-          list = this.state.selectedCategories.splice(i,1);
-          i--;
-        }
-      }
-    }
+    var list= this.state.selectedCategories.concat([id])
     this.setState({
       selectedCategories: list
-    }, this.handleSubmit)
+    })
   }
   
+  setNumberofParticipants(n) {
+    this.setState({
+      numParticipants: n
+    });
+  }
+
+
   render() {
 
-    var display = 
+    var display;
+
+    var questionSelection = 
       <div>
         <div>Select which questions you want featured in your survey:</div>
         <QuestionList
@@ -47,9 +55,23 @@ class CreateSurvey extends Component {
           selectedCategories = {this.state.selectedCategories}
         />
         <div className="bottombar">
-          <button type="submit" value="Submit" onClick={() => this.continueSurvey()}>Continue</button>
+          <button type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
         </div>
       </div>
+
+    var surveyDesign = 
+      <div>
+        <div className = 'design'>Design your survey: </div>
+        <SurveyDesign
+          setNumberofParticipants={this.setNumberofParticipants.bind(this)}
+        />
+      </div>
+
+    if (this.state.currentStep === 1) {
+      display = questionSelection;
+    } else if (this.state.currentStep === 2) {
+      display = surveyDesign;
+    }
 
       return (
         <div>
