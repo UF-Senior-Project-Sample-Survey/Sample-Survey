@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { registerUser } from "../../actions/authActions";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 class Register extends Component {
 
@@ -14,6 +17,21 @@ class Register extends Component {
     };
   }
 
+  componentDidMount() {
+    // If logged in and user navigates to Register page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+    this.props.history.push("/login");
+    }
+}
+
+componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+        this.setState({
+            errors: nextProps.errors
+        });
+    }
+}
+
   onChange = e => {
       this.setState({ [e.target.id]: e.target.value });
   };
@@ -26,7 +44,7 @@ class Register extends Component {
         password: this.state.password,
         password2: this.state.password2
       };
-      console.log(newUser);
+      this.props.registerUser(newUser, this.props.history);
   };
   render() {
     const { errors } = this.state;
@@ -109,4 +127,19 @@ class Register extends Component {
       );
     }
 }
-export default Register;
+
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps, 
+  {registerUser}
+)(withRouter(Register));

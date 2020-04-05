@@ -10,7 +10,7 @@ const validateLoginInput = require("../../validation/login");
 
 const User = require("../../models/User");
 
-router.post("/registration", (req, res) => {
+router.post("/register", (req, res) => {
 
   const { errors, isValid } = validateRegistrationInput(req.body);
     if (!isValid) {
@@ -21,7 +21,7 @@ router.post("/registration", (req, res) => {
         return res.status(400).json({ email: "Email already exists" });
       } else {
         const newUser = new User({
-          username: req.body.username,
+          name: req.body.name,
           email: req.body.email,
           password: req.body.password
         });
