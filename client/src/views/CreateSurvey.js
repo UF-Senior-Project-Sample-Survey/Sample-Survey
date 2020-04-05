@@ -1,5 +1,6 @@
 import NavBar from "../components/Header/NavBar";
 import React, {Component} from 'react';
+import '../components/CreateSurvey/QuestionList.css';
 import './CreateSurvey.css';
 import QuestionList from '../components/CreateSurvey/QuestionList';
 

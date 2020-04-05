@@ -5,17 +5,23 @@ export default ({data}) => {
     const questionList = data
         .map(q => {
             return (
-                <li 
-                    key={q.id}
-                    className = ''
-                >
-                    {q.text}
-                </li>
+                <div className = 'question-display'>
+                    <button class="w3-button w3-circle w3-black">+</button>
+                    <div
+                        key={q.id}
+                        className = 'question-text'
+                    >
+                        {q.text}
+                    </div>
+                    <div className='checkbox'>
+                        <input type="checkbox"></input>
+                    </div>
+                </div>
             )
     })
 
     return (
-      <div>
+      <div className = 'question-list'>
           {questionList}
       </div>
     );
