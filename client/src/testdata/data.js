@@ -13,5 +13,17 @@ export default [
     }, {
       id: 2,
       text: 'What is your gender?'
+    }, {
+      id: 3,
+      text: 'Do you have anxiety?'
+    }, {
+      id: 4,
+      text: 'Do you prefer "The Office" or "Friends"?'
+    }, {
+      id: 5,
+      text: 'Do you care about the environment?'
+    }, {
+        id: 6,
+        text: 'What state do you live in?'
     }
   ]
