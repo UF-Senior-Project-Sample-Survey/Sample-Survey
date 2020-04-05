@@ -11,25 +11,51 @@ class CreateSurvey extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedQuestions: []
+      selectedCategories: []
     }
   }
 
-  addQuestion(id) {
-    const list = this.state.selectedQuestions.concat([id])
+  continueSurvey() {
+    console.log(this.state.selectedCategories)
+  }
+
+  addCategory(id) {
+    var list;
+    if(!this.state.selectedCategories.includes(id)) {
+      list = this.state.selectedCategories.concat([id])
+    } else {
+      for (var i = 0; i < this.state.selectedCategories.length; i++) {
+        if (this.state.selectedCategories[i] === id) {
+          list = this.state.selectedCategories.splice(i,1);
+          i--;
+        }
+      }
+    }
     this.setState({
-      selectedQuestions: list
-    })
+      selectedCategories: list
+    }, this.handleSubmit)
   }
   
   render() {
+
+    var display = 
+      <div>
+        <div>Select which questions you want featured in your survey:</div>
+        <QuestionList
+          data={data}
+          addCategory={this.addCategory.bind(this)}
+          selectedCategories = {this.state.selectedCategories}
+        />
+        <div className="bottombar">
+          <button type="submit" value="Submit" onClick={() => this.continueSurvey()}>Continue</button>
+        </div>
+      </div>
+
       return (
         <div>
             <NavBar/>
-            <div className = "container">
-              <QuestionList
-                data={data}
-              />
+            <div className = 'container'>
+              {display}
             </div>
         </div>
       );

@@ -1,20 +1,41 @@
 import React from 'react';
 
-export default ({data}) => {
+export default ({data, addCategory, selectedCategories}) => {
 
-    const questionList = data
-        .map(q => {
-            return (
-                <div className = 'question-display'>
-                    <button class="w3-button w3-circle w3-black">+</button>
-                    <div
-                        key={q.id}
-                        className = 'question-text'
-                    >
-                        {q.text}
+    const categoryList = data
+        .map(c => {
+
+            const questionList = c.questions
+            .map(q => {
+                return (
+                    <div id={c.id} className = "question">
+                        <div
+                            key={q.qid}
+                            className = 'question-text' 
+                        >
+                            {q.qtext}
+                        </div>
                     </div>
-                    <div className='checkbox'>
-                        <input type="checkbox"></input>
+                )
+            })
+            return (
+                <div className = 'list-container'>
+                    <div className = 'category-display'>
+                        <div className = 'category-container' >
+                            <div
+                                key={c.id}
+                                className = 'category-text' 
+                            >
+                                {c.text}
+                            </div>
+                        </div>
+                        <label className = "checkbox">
+                            <input type="checkbox" onClick={() => addCategory(c.id)}></input>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div className = 'question-container'> 
+                        {questionList}
                     </div>
                 </div>
             )
@@ -22,7 +43,7 @@ export default ({data}) => {
 
     return (
       <div className = 'question-list'>
-          {questionList}
+          {categoryList}
       </div>
     );
 }
