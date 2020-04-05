@@ -7,6 +7,7 @@ export default ({data}) => {
             return (
                 <li 
                     key={q.id}
+                    className = ''
                 >
                     {q.text}
                 </li>
