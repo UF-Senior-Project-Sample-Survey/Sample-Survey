@@ -26,7 +26,7 @@ class NavBar extends React.Component {
                             <li><log onClick={() => this.props.logoutUser()}>Logout</log></li>
                             <li><Link to="/about" classname="a">About</Link></li>
                             <li><Link to="/samplingmethods" classname="a">Sampling Methods</Link></li>
-                            <li><Link to="/createsurvey" classname="a">Create Sample</Link></li>
+                            <li><Link to="/createsurvey" classname="a">Create a Survey</Link></li>
                         </ul>
         ;
 
