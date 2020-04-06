@@ -25,19 +25,38 @@ class CreateSurvey extends Component {
     var nextStep = this.state.currentStep + 1;
     this.setState({
       currentStep: nextStep
-    })
+    });
+  }
+
+  goBack() {
+    var nextStep = this.state.currentStep - 1;
+    this.setState({
+      currentStep: nextStep
+    });
   }
 
   addCategory(id) {
     var list= this.state.selectedCategories.concat([id])
     this.setState({
       selectedCategories: list
-    })
+    });
   }
   
   setNumberofParticipants(n) {
     this.setState({
       numParticipants: n
+    });
+  }
+
+  setSamplingMethod(s) {
+    this.setState({
+      samplingMethod: s
+    });
+  }
+
+  setExcelName(name) {
+    this.setState({
+      excelName: name
     });
   }
 
@@ -55,7 +74,7 @@ class CreateSurvey extends Component {
           selectedCategories = {this.state.selectedCategories}
         />
         <div className="bottombar">
-          <button type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
+          <button class="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
         </div>
       </div>
 
@@ -64,7 +83,13 @@ class CreateSurvey extends Component {
         <div className = 'design'>Design your survey: </div>
         <SurveyDesign
           setNumberofParticipants={this.setNumberofParticipants.bind(this)}
+          setSamplingMethod={this.setSamplingMethod.bind(this)}
+          setExcelName={this.setExcelName.bind(this)}
         />
+        <div className="bottombar">
+          <button class="button previous" type="button" value="Submit" onClick={() => this.goBack()}>Previous Step</button>
+          <button class="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
+        </div>
       </div>
 
     if (this.state.currentStep === 1) {

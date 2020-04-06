@@ -8,34 +8,48 @@
     min-width: 600px;
 }
 
-.container .bottombar {
-    text-align: right;
-    padding-bottom: 10px;
-}
-
-.container .bottombar button {
-    background-color: rgb(30, 149, 253);
-    border: none;
-    color: white;
-    padding: 15px 50px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-  }
-
   .container .bottombar button:hover {
-    background-color: rgb(24, 122, 207);
+    background-color: rgb(60, 60, 60);
     cursor: pointer;
-  }
-
-  .container .bottombar button:active {
-    background-color: rgb(24, 122, 207);
-    box-shadow: 0 5px rgb(158, 158, 158);
-    transform: translateY(2px);
   }
 
   .container .design {
       margin-top: 40px;
   }
+
+  .container .bottombar {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    width: 100%;
+    height: 90px;
+    display: inline-block;
+    min-width: 650px;
+}
+
+.container .bottombar .previous {
+  background-color: rgb(27, 27, 27);
+  color: white;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  float: left;
+  padding-top: 0px;
+}
+
+.container .bottombar .next {
+  background-color: rgb(27, 27, 27);
+  color: white;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  float: right;
+  padding-top: 0px;
+}
+
+.formContainer form .botnavbar .buttonholder .previous:hover {
+    cursor: pointer;
+}
+
+.formContainer form .botnavbar .buttonholder .next:hover {
+    cursor: pointer;
+}
