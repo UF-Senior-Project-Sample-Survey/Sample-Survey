@@ -1,5 +1,5 @@
 const Person = require('../models/person.server.model');
-const randName = require('../person_sources/randName');
+const personMaker = require('../person_sources/person-constructor');
 
 exports.hello = function (req, res) {
     res.send('the things you seek.')
@@ -28,30 +28,7 @@ exports.allPeople = (req, res) => {
 };
 
 exports.addRandom = (req, res) => {
-    let person = new Person({
-        age: Math.floor(Math.random() * 55) + 20,
-        maritalStatus: "Single",
-        householdSize: Math.floor(Math.random() * 8),
-        education: "University",
-        job: "Plumber",
-        yearsExperience: Math.floor(Math.random() * 30) + 1,
-        location: "CityName",
-        salary: (Math.floor(Math.random() * 100) + 20) * 1000
-    })
-    if(Math.floor(Math.random()*2) == 0){
-        person.name = {
-            first: randName.randMale(),
-            last: randName.randSurname()
-        }
-        person.gender = "Male"
-    }
-    else{
-        person.name = {
-            first: randName.randFemale(),
-            last: randName.randSurname()
-        }
-        person.gender = "Female"
-    }
+    let person = personMaker.createPerson();
     person.save()
         .then(person => {
             res.status(200).json({ 'person': 'person added successfully' });

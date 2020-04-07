@@ -1,0 +1,90 @@
+{
+    "jobs": [
+        {
+            "title": "Physician",
+            "salary": [
+                {
+                    "experience": 2,
+                    "median": 167000,
+                    "range": 30000
+                },
+                {
+                    "experience": 5,
+                    "median": 171000,
+                    "range": 30000
+                },
+                {
+                    "experience": 10,
+                    "median": 184000,
+                    "range": 50000
+                },
+                {
+                    "experience": 20,
+                    "median": 190000,
+                    "range": 50000
+                },
+                {
+                    "experience": 99,
+                    "median": 197000,
+                    "range": 80000
+                }
+            ],
+            "weight": 5,
+            "minimumEducation": "University"
+        },
+        {
+            "title": "Secretary",
+            "salary": [
+                {
+                    "experience": 2,
+                    "median": 30000,
+                    "range": 10000
+                },
+                {
+                    "experience": 5,
+                    "median": 35000,
+                    "range": 10000
+                },
+                {
+                    "experience": 10,
+                    "median": 39000,
+                    "range": 10000
+                },
+                {
+                    "experience": 20,
+                    "median": 41000,
+                    "range": 10000
+                },
+                {
+                    "experience": 99,
+                    "median": 47000,
+                    "range": 12000
+                }
+            ],
+            "weight": 20,
+            "minimumEducation": "High School"
+        },
+        {
+            "title": "Bartender",
+            "salary": [
+                {
+                    "experience": 5,
+                    "median": 26000,
+                    "range": 5000
+                },
+                {
+                    "experience": 20,
+                    "median": 39000,
+                    "range": 10000
+                },
+                {
+                    "experience": 99,
+                    "median": 38000,
+                    "range": 14000
+                }
+            ],
+            "weight": 20,
+            "minimumEducation": "none"
+        }
+    ]
+}
