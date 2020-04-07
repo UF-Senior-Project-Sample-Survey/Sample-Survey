@@ -1,16 +1,17 @@
 const personProp = require('./person-properties');
 const Person = require('../models/person.server.model');
 
+//TODO: Connect Job to education
+
 module.exports.createPerson = () => {
     let person = new Person({
         age: Math.floor(Math.random() * 55) + 20,
-        maritalStatus: "Single",
+        maritalStatus: personProp.randMarital(),
         householdSize: Math.floor(Math.random() * 8),
-        education: "University",
+        education: personProp.randEducation(),
         job: personProp.randJob(),
-        location: "CityName",
+        location: personProp.randCity()
     });
-
     person.yearsExperience = Math.floor(Math.random() * ((person.age)-17)) + 1;
     person.salary = personProp.randSalary(person.yearsExperience, person.job);
     
@@ -30,3 +31,4 @@ module.exports.createPerson = () => {
     }
     return person;
 }
+

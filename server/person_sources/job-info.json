@@ -30,7 +30,7 @@
                 }
             ],
             "weight": 5,
-            "minimumEducation": "University"
+            "minimumEducation": "Doctorate Degree"
         },
         {
             "title": "Secretary",
@@ -62,7 +62,7 @@
                 }
             ],
             "weight": 20,
-            "minimumEducation": "High School"
+            "minimumEducation": "High School or GED"
         },
         {
             "title": "Bartender",
@@ -84,7 +84,7 @@
                 }
             ],
             "weight": 20,
-            "minimumEducation": "none"
+            "minimumEducation": "Some High School"
         }
     ]
 }
