@@ -37,3 +37,15 @@ exports.addRandom = (req, res) => {
             res.status(400).send(err);
         });
 }
+
+exports.findById = (req, res) => {
+    let id = req.params.id;
+    Person.findById(id, (err, person) => {
+        if (err) {
+            console.log(err);
+        }
+        else{
+            res.json(person);
+        }
+    });
+}

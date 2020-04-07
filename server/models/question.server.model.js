@@ -4,7 +4,11 @@ var mongoose = require('mongoose'),
 var questionSchema = new Schema({
 
     prompt: {type: String, required: true, unique: true},
-    answers:[String]
+    category: {type: String, required: true},
+    answers:[{
+        text: {type: String},
+        weight:{type: Number}
+    }]
 });
 
 

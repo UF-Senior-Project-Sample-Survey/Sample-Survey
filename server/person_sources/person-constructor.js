@@ -2,6 +2,7 @@ const personProp = require('./person-properties');
 const Person = require('../models/person.server.model');
 
 //TODO: Connect Job to education
+//TODO: Make householdSize dependent on marital status?
 
 module.exports.createPerson = () => {
     let person = new Person({
