@@ -1,0 +1,34 @@
+
+.custom-container {
+    text-align: center;
+    padding-top: 80px;
+    font-size: xx-large;
+    font-weight: 600;
+    min-width: 600px;
+    align-content: center;
+}
+
+.custom-container .page-header {
+    font-size: xx-large;
+    padding: 20px;
+}
+
+.custom-container .page-body {
+    font-size: x-large;
+}
+
+.custom-container .page-body .selection {
+    min-width: 350px;
+    font-size: large;
+    font-weight: 600;
+    height: 50px;
+    margin: 10px;
+    background-color: rgb(142, 198, 247);
+    border-radius: 7px;
+    border-color: rgb(113, 158, 197);
+}
+
+.custom-container .page-body .selection:hover {
+    cursor: pointer;
+    background-color: rgb(89, 173, 247);
+}

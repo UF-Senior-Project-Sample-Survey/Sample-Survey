@@ -1,0 +1,49 @@
+  {
+    "sampleQuestions": [
+      {
+        "c_id": 0,
+        "q_id": 0,
+        "text": "Are you obese?"
+      },
+      {
+        "c_id": 0,
+        "q_id": 1,
+        "text": "What is your age?"
+      },
+      {
+        "c_id": 0,
+        "q_id": 2,
+        "text": "What state do you live in?"
+      },
+      {
+        "c_id": 0,
+        "q_id": 3,
+        "text": "What month were you born in?"
+      },
+      {
+        "c_id": 0,
+        "q_id": 4,
+        "text": "How many children do you have?"
+      },
+      {
+        "c_id": 0,
+        "q_id": 5,
+        "text": "What is your relationship status?"
+      },
+      {
+        "c_id": 1,
+        "q_id": 6,
+        "text": "What is your political party?"
+      },
+      {
+        "c_id": 1,
+        "q_id": 7,
+        "text": "Have you ever voted in a presidential election?"
+      },
+      {
+        "c_id": 1,
+        "q_id": 8,
+        "text": "What is your opinion of Donald Trump?"
+      }
+    ]
+  }

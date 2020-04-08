@@ -1,0 +1,19 @@
+{
+    "sampleAnswers": [
+      {
+        "q_id": 0,
+        "answers": ["Yes", "No", "Unknown"],
+        "probabilities": [0.30, 0.60, 0.10]
+      },
+      {
+        "q_id": 1,
+        "answers": ["0-18", "18-25", "25-40", "40-65", "65+"],
+        "probabilities": [0.1, 0.3, 0.3, 0.2, 0.1]
+      },
+      {
+        "q_id": 2,
+        "answers": ["Alabama", "Florida", "Georgia", "New Jersey", "Wyoming"],
+        "probabilities": [0.1, 0.3, 0.3, 0.2, 0.1]
+      }
+    ]
+  }

@@ -17,8 +17,9 @@
 .question-list .list-container .question-container{
     width: 90%;
     height: 100%;
-    text-align: left;
-    background-color: rgba(180, 219, 253, 0.397);
+    text-align: center;
+    float: left;
+    background-color: rgb(202, 230, 255);
 }
 
 .question-list .list-container .category-display{
@@ -29,15 +30,24 @@
 }
 
 .question-list .list-container .question{
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-weight: lighter;
+    display: inline-block;
+    background-color: rgb(224, 240, 255);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .question-list .list-container .category-display .category-container .category-text {
     padding: 4px;
     padding-left: 20px;
-    background-color: rgb(180, 219, 253);
+    background-color: rgb(180, 220, 255);
 }
 
 .question-list .list-container .category-display .category-container {

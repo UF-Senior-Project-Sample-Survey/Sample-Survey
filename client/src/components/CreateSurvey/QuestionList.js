@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({data, addCategory}) => {
+export default ({data}) => {
 
     const categoryList = data
         .map(c => {
@@ -10,7 +10,6 @@ export default ({data, addCategory}) => {
                 return (
                     <div id={c.id} className = "question">
                         <div
-                            key={q.qid}
                             className = 'question-text' 
                         >
                             {q.qtext}
@@ -30,7 +29,7 @@ export default ({data, addCategory}) => {
                             </div>
                         </div>
                         <label className = "checkbox">
-                            <input type="checkbox" onClick={() => addCategory(c.id)}></input>
+                            <input type="checkbox" id={'check' + c.id}></input>
                             <span className="checkmark"></span>
                         </label>
                     </div>
