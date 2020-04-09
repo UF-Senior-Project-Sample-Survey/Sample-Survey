@@ -19,7 +19,9 @@ class Sampling extends Component {
       this.setState({
         samplingMethod: method,
         methodStep: 0, 
-        selectedsrs: []
+        selectedsrs: [],
+        selectedstrat: [],
+        selectedclus: []
       });
     }
 
@@ -53,6 +55,21 @@ class Sampling extends Component {
 
         this.setState({
           selectedstrat: strat
+        });
+      } else if (method === 'cluster') {
+        var cluster = [];
+        
+        for(var i = 0; i < 2; i++) {
+          var s = Math.floor((Math.random() * 10) + 1);
+          if (cluster.includes(s)) {
+            i--;
+          } else {
+            cluster = cluster.concat([s]);
+          }
+        }
+
+        this.setState({
+          selectedclus: cluster
         });
       }
     }
@@ -88,7 +105,7 @@ class Sampling extends Component {
             const myRow =
               r.map(n => {
                 var c = 'indiv';
-                // if value is selected by random number generator, change class to show it was selection
+                // if value is selected by random number generator, change class to show it was selected
                 if (this.state.selectedsrs.includes(n)) {
                   c = 'indiv-selected'
                 }
@@ -134,7 +151,7 @@ class Sampling extends Component {
             const myvals =
               mRow.r.map(n => {
                 var c = 'indiv' + mRow.id;
-                // if value is selected by random number generator, change class to show it was selection
+                // if value is selected by random number generator, change class to show it was selected
                 if (this.state.selectedstrat.includes(mRow.id + '-' + n)) {
                   c = 'indiv-selected';
                 }
@@ -144,8 +161,11 @@ class Sampling extends Component {
                   </div>
                 )
               });
+
+          var rowName = 'myRow' + mRow.id;
+
             return(
-              <div className = 'myRow'>
+              <div className = {rowName}>
                 {myvals}
               </div>
             )
@@ -164,16 +184,51 @@ class Sampling extends Component {
       } else if (this.state.samplingMethod === 'cluster') {
         displayRows = [
           {id: 1, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
-          {id: 2, r: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]},
+          {id: 2, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
           {id: 3, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
-          {id: 4, r: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]},
+          {id: 4, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
           {id: 5, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
-          {id: 6, r: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]},
+          {id: 6, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
           {id: 7, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
-          {id: 8, r: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]},
+          {id: 8, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
           {id: 9, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
-          {id: 10, r: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]},
-        ]
+          {id: 10, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
+        ];
+
+        var tableDisplay = displayRows
+          .map(mRow => {
+            const myvals =
+              mRow.r.map(n => {
+                var c = 'indiv-cluster' + mRow.id
+                // if value is selected by random number generator, change class to show it was selected
+                if (this.state.selectedclus.includes(mRow.id)) {
+                  c = 'indiv-selected';
+                }
+                return(
+                  <div className = {c}>
+                    {n}
+                  </div>
+                )
+              });
+
+            var rowName = 'myRow-cluster' + mRow.id
+            return(
+              <div className = {rowName}>
+                {myvals}
+              </div>
+            )
+          })
+
+          sDisplay = 
+          <div>
+            <div className='nav'>
+              <button className="button reset" type="button" value="Submit" onClick={() => this.resetSample()}>Reset</button>
+              <button className="button generate" type="button" value="Submit" onClick={() => this.generate('cluster')}>Generate Cluster Sample</button>
+            </div>
+            <div className='page-body'>
+              {tableDisplay}
+            </div>
+          </div>
       }
 
 

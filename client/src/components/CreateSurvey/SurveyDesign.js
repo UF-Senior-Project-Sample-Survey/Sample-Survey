@@ -37,9 +37,6 @@ class SurveyDesign extends Component {
                     </button>
                 </div>
                 <div className='myLink'><Link to="/samplingmethods" classname="a">Learn more about these sampling methods</Link></div>
-                <label>Name of Generated Excel File:</label>
-                <input type="text" style={{width: '200px', marginLeft: '20px'}} ref={(value) => this.nameValue = value} id="excelName" name="excelName" onChange={() => this.setExcelName()}></input>
-                
             </form>
         </div>
         );

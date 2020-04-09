@@ -72,12 +72,6 @@ class CreateSurvey extends Component {
     });
   }
 
-  setExcelName(name) {
-    this.setState({
-      excelName: name
-    });
-  }
-
 
   render() {
 
@@ -101,7 +95,6 @@ class CreateSurvey extends Component {
         <SurveyDesign
           setNumberofParticipants={this.setNumberofParticipants.bind(this)}
           setSamplingMethod={this.setSamplingMethod.bind(this)}
-          setExcelName={this.setExcelName.bind(this)}
         />
         <div className="bottombar">
           <button className="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
