@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './ControlPanel.css';
 import axios from 'axios';
+import NavBar from '../Header/NavBar';
 
 class ControlPanel extends Component {
     constructor(props) {
@@ -54,18 +55,21 @@ class ControlPanel extends Component {
 
     render() {
         return (
-            <div className="controlTab">
-                <Link className="controlLink" to='question/create' style={{ marginTop: 20 }}>Create Question</Link>
-                <table style={{ width: 400 }}>
-                    <thead>
-                        <tr className="controlRow">
-                            <th>Questions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.questions()}
-                    </tbody>
-                </table>
+            <div className = 'controlTab'>
+                <NavBar/>
+                <div className="custom-container">
+                    <Link className="controlLink" to='question/create' style={{ marginTop: 20 }}>Create Question</Link>
+                    <table style={{ width: 400 }}>
+                        <thead>
+                            <tr className="controlRow">
+                                <th>Questions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.questions()}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }
