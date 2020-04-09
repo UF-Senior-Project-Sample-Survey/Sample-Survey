@@ -9,7 +9,9 @@ class Sampling extends Component {
       this.state = {
         samplingMethod: "",
         methodStep: 0,
-        selectedsrs: []
+        selectedsrs: [],
+        selectedstrat: [],
+        selectedclus: []
       }
     }
 
@@ -25,13 +27,42 @@ class Sampling extends Component {
       if (method === 'srs') {
         var srs = [];
         for (var i = 0; i < 20; i++) {
-          srs = srs.concat([Math.floor((Math.random() * 100) + 1)]);
+          var newNum = Math.floor((Math.random() * 100) + 1);
+          if (srs.includes(newNum)) {
+            i--;
+          } else {
+            srs = srs.concat([newNum]);
+          }
         }
 
         this.setState({
           selectedsrs: srs
         });
+      } else if (method === 'stratified') {
+        var strat = [];
+        for (var i = 1; i < 11; i++) {
+          for (var j = 0; j < 2; j++) {
+            var newNum = i + '-' + Math.floor((Math.random() * 10) + 1);
+            if (strat.includes(newNum)) {
+              j--;
+            } else {
+              strat = strat.concat([newNum]);
+            }
+          }
+        }
+
+        this.setState({
+          selectedstrat: strat
+        });
       }
+    }
+
+    resetSample() {
+      this.setState({
+        selectedsrs: [],
+        selectedstrat: [],
+        selectedclus: []
+      });
     }
 
     render() {
@@ -97,6 +128,39 @@ class Sampling extends Component {
           {id: 9, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
           {id: 10, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
         ];
+
+        var tableDisplay = displayRows
+          .map(mRow => {
+            const myvals =
+              mRow.r.map(n => {
+                var c = 'indiv' + mRow.id;
+                // if value is selected by random number generator, change class to show it was selection
+                if (this.state.selectedstrat.includes(mRow.id + '-' + n)) {
+                  c = 'indiv-selected';
+                }
+                return(
+                  <div className = {c}>
+                    {n}
+                  </div>
+                )
+              });
+            return(
+              <div className = 'myRow'>
+                {myvals}
+              </div>
+            )
+          })
+
+          sDisplay = 
+          <div>
+            <div className='nav'>
+              <button className="button reset" type="button" value="Submit" onClick={() => this.resetSample()}>Reset</button>
+              <button className="button generate" type="button" value="Submit" onClick={() => this.generate('stratified')}>Generate Stratified Random Sample</button>
+            </div>
+            <div className='page-body'>
+              {tableDisplay}
+            </div>
+          </div>
       } else if (this.state.samplingMethod === 'cluster') {
         displayRows = [
           {id: 1, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
