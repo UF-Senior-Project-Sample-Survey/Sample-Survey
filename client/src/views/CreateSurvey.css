@@ -1,23 +1,33 @@
 
-.container {
+.custom-container {
     text-align: left;
-    padding-top: 150px;
+    padding: 30px;
+    padding-top: 120px;
     font-size: xx-large;
     font-weight: 600;
-    width: 90vw;
     min-width: 600px;
+    align-content: center;
 }
 
-  .container .bottombar button:hover {
+.container {
+  text-align: left;
+  padding-top: 100px;
+  font-size: xx-large;
+  font-weight: 600;
+  min-width: 600px;
+  align-content: center;
+}
+
+  .custom-container .bottombar button:hover {
     background-color: rgb(60, 60, 60);
     cursor: pointer;
   }
 
-  .container .design {
+  .custom-container .design {
       margin-top: 40px;
   }
 
-  .container .bottombar {
+  .custom-container .bottombar {
     padding-top: 50px;
     padding-bottom: 20px;
     width: 100%;
@@ -26,7 +36,7 @@
     min-width: 650px;
 }
 
-.container .bottombar .previous {
+.custom-container .bottombar .previous {
   background-color: rgb(27, 27, 27);
   color: white;
   width: 120px;
@@ -36,7 +46,7 @@
   padding-top: 0px;
 }
 
-.container .bottombar .next {
+.custom-container .bottombar .next {
   background-color: rgb(27, 27, 27);
   color: white;
   width: 120px;
@@ -52,4 +62,42 @@
 
 .formContainer form .botnavbar .buttonholder .next:hover {
     cursor: pointer;
+}
+
+.container .bottombar button:hover {
+  background-color: rgb(60, 60, 60);
+  cursor: pointer;
+}
+
+.container .design {
+    margin-top: 40px;
+}
+
+.container .bottombar {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  width: 100%;
+  height: 90px;
+  display: inline-block;
+  min-width: 650px;
+}
+
+.container .bottombar .previous {
+background-color: rgb(27, 27, 27);
+color: white;
+width: 120px;
+height: 40px;
+font-size: 16px;
+float: left;
+padding-top: 0px;
+}
+
+.container .bottombar .next {
+background-color: rgb(27, 27, 27);
+color: white;
+width: 120px;
+height: 40px;
+font-size: 16px;
+float: right;
+padding-top: 0px;
 }

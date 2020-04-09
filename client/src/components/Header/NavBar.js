@@ -15,7 +15,7 @@ class NavBar extends React.Component {
 
     render(){
 
-        var studentHeader;
+        var studentHeader, instructorHeader;
 
         studentHeader = <ul className="landing">
                             <Link to="/home">
@@ -23,15 +23,29 @@ class NavBar extends React.Component {
                                     Sample Survey
                                 </div>
                             </Link>
-                            <li><log onClick={() => this.props.logoutUser()}>Logout</log></li>
-                            <li><Link to="/about" classname="a">About</Link></li>
-                            <li><Link to="/samplingmethods" classname="a">Sampling Methods</Link></li>
-                            <li><Link to="/createsurvey" classname="a">Create Sample</Link></li>
+                            <li><div className='log' onClick={() => this.props.logoutUser()}>Logout</div></li>
+                            <li><Link to="/about" className="a">About</Link></li>
+                            <li><Link to="/samplingmethods" className="a">Sampling Methods</Link></li>
+                            <li><Link to="/createsurvey" className="a">Create a Survey</Link></li>
+                        </ul>
+        ;
+
+        instructorHeader = <ul className="landing">
+                            <Link to="/home">
+                                <div className="headerText">
+                                    Sample Survey
+                                </div>
+                            </Link>
+                            <li><div className='log' onClick={() => this.props.logoutUser()}>Logout</div></li>
+                            <li><Link to="/controlpanel" className="a">My Questions</Link></li>
+                            <li><Link to="/about" className="a">About</Link></li>
+                            <li><Link to="/samplingmethods" className="a">Sampling Methods</Link></li>
+                            <li><Link to="/createsurvey" className="a">Create a Survey</Link></li>
                         </ul>
         ;
 
         return (
-            studentHeader
+            instructorHeader
         )
     }
 }

@@ -5,8 +5,6 @@ body.header{
     color: white;
 }
 
-/*https://www.w3schools.com/howto/howto_js_topnav.asp*/
-
 .navbar{
     justify-content: center;
     align-items: center;
@@ -90,7 +88,7 @@ ul.landing {
     background-color: #111;
   }
 
-  li log {
+  li .log {
     display: block;
     color: white;
     text-align: center;
@@ -104,6 +102,6 @@ ul.landing {
     border-width: 1px;;
   }
 
-  li log:hover {
+  li .log:hover {
     background-color: #111;
   }
