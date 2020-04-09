@@ -90,6 +90,7 @@ class CreateSurvey extends Component {
           data={mydata}
         />
         <div className="bottombar">
+          <button className="button previous" type="button" value="Submit" onClick={() => this.goBack()}>Previous Step</button>
           <button className="button next" type="button" value="Submit" onClick={() => this.submitQuestions(mydata)}>Next Step</button>
         </div>
       </div>
@@ -103,7 +104,6 @@ class CreateSurvey extends Component {
           setExcelName={this.setExcelName.bind(this)}
         />
         <div className="bottombar">
-          <button className="button previous" type="button" value="Submit" onClick={() => this.goBack()}>Previous Step</button>
           <button className="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
         </div>
       </div>
@@ -123,9 +123,9 @@ class CreateSurvey extends Component {
         />
 
     if (this.state.currentStep === 1) {
-      display = questionSelection;
-    } else if (this.state.currentStep === 2) {
       display = surveyDesign;
+    } else if (this.state.currentStep === 2) {
+      display = questionSelection;
     } else if (this.state.currentStep === 3) {
       display = spreadSheet;
     }

@@ -4,6 +4,9 @@ import './Sampling.css';
 
 class Sampling extends Component {
     render() {
+
+      
+
       return (
         <div>
             <NavBar/>
