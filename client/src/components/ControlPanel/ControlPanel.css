@@ -1,0 +1,26 @@
+.controlTab{
+    background-color: wheat;
+    min-height: 100vh;
+    display: flex;
+    padding-left: 20px;
+    flex-direction: column;
+    font-size: calc(9px + 2vmin);
+    color: #282c34;
+}
+.controlRow{
+    background-color: lavender;
+}
+
+.controlRow td{
+    text-align: center;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.controlRow th{
+    text-align: center;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
