@@ -5,6 +5,7 @@ var questionSchema = new Schema({
 
     prompt: {type: String, required: true, unique: true},
     category: {type: String, required: true},
+    totalWeight:{type: Number},
     answers:[{
         text: {type: String},
         weight:{type: Number}

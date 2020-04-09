@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
-import { Route, Redirect, Switch, BrowserRouter as Router} from 'react-router-dom';
+import { Route, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Landing from "./components/Landing";
 import Register from "./components/Login/Register";
 import Login from "./components/Login/Login";
@@ -14,6 +14,10 @@ import store from "./store";
 import NotFound from "./views/NotFound";
 import PrivateRoute from "./components/Authenticate/PrivateRoute";
 import Sampling from "./views/Sampling";
+import ControlPanel from "./components/ControlPanel/ControlPanel";
+import ViewQuestion from "./components/ControlPanel/ViewQuestion/ViewQuestion";
+import CreateQuestion from "./components/ControlPanel/AddQuestion/AddQuestion";
+import EditQuestion from "./components/ControlPanel/EditQuestion/EditQuestion";
 
 // check for a token to keep the user logged in
 if (localStorage.jwtToken) {
@@ -33,25 +37,31 @@ if (localStorage.jwtToken) {
 class App extends Component {
   render() {
     return (
-      <Provider store = {store}>
+      <Provider store={store}>
         <Router>
-            <div>
-              <Switch>
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/landing" component={Landing} />
-                <Route exact path="/">
-                  <Redirect to="/landing" />
-                </Route>
-                <PrivateRoute exact path="/home" component={Home} />
-                <PrivateRoute exact path="/createsurvey" component={CreateSurvey}/>
-                <PrivateRoute exact path="/samplingmethods" component={Sampling} />
-                <PrivateRoute exact path="/about" component={About} />
-                <Route component={NotFound}/>
-              </Switch>
-            </div>
-          </Router>
-        </Provider>
+          <div>
+            <Switch>
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/landing" component={Landing} />
+
+              <Route exact path="/controlpanel" component={ControlPanel} />
+              <Route exact path="/question/view/:id" component={ViewQuestion} />
+              <Route exact path="/question/edit/:id" component={EditQuestion} />
+              <Route path="/question/create" component={CreateQuestion} />
+
+              <Route exact path="/">
+                <Redirect to="/landing" />
+              </Route>
+              <PrivateRoute exact path="/home" component={Home} />
+              <PrivateRoute exact path="/createsurvey" component={CreateSurvey} />
+              <PrivateRoute exact path="/samplingmethods" component={Sampling} />
+              <PrivateRoute exact path="/about" component={About} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }

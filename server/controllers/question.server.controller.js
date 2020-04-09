@@ -2,28 +2,12 @@ const Question = require('../models/question.server.model')
 
 
 exports.addQuestion = function (req, res) {
-    let question = new Question({
-        category: "Examples",
-        prompt: "Another Example Prompt",
-        answers: [
-            {
-                text: "Answer A",
-                weight: 10
-            },
-            {
-                text: "Answer B",
-                weight: 30
-            },
-            {
-                text: "Answer C",
-                weight: 50
-            },
-            {
-                text: "Answer D",
-                weight: 30
-            }
-        ]
-    });
+    let question = new Question(req.body);
+    question.totalWeight = 0;
+    for (i in question.answers){
+        question.totalWeight += question.answers[i].weight;
+    }
+    
     question.save()
         .then(question => {
             res.status(200).json({ 'question': 'question added successfully' });
@@ -44,6 +28,30 @@ exports.allQuestions = (req, res) => {
     });
 };
 
+exports.updateQuestion = (req, res) => {
+    Question.findById(req.params.id, function (err, question) {
+      if (!question)
+        res.status(400).send('Question is not found');
+      else {
+        question.prompt = req.body.prompt;
+        question.category = req.body.category;
+        question.answers = req.body.answers;
+        question.totalWeight = 0;
+        for (i in question.answers){
+            question.totalWeight += question.answers[i].weight;
+        }
+  
+        question.save()
+          .then(question => {
+            res.json('Question Updated');
+          })
+          .catch(err => {
+            res.status(400).send(err);
+          })
+      }
+    })
+  }
+
 exports.findById = (req, res) => {
     let id = req.params.id;
     Question.findById(id, (err, question) => {
@@ -56,28 +64,18 @@ exports.findById = (req, res) => {
     });
 }
 
-
-exports.selectRandomAnswer = (req, res) => {
+exports.deleteQuestion = (req,res) => {
     let id = req.params.id;
     Question.findById(id, (err, question) => {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            //Algorithm for randomly selecting an answer from a question
-            let totalAnswerWeight = 0;
-            for (i in question.answers)
-                totalAnswerWeight += question.answers[i].weight;
-            let weight = Math.floor(Math.random() * totalAnswerWeight);
-            let answer;
-            for (i in question.answers) {
-                weight -= question.answers[i].weight;
-                answer = question.answers[i].text;
-                if (weight <= 0)
-                    break;
-            }
-
-            res.json({ question: question.prompt, answer: answer });
-        }
-    });
+        if (!question)
+            res.status(400).send('question not found');
+        else
+            question.remove()
+                .then(question => {
+                    res.json('Question Deleted');
+                })
+                .catch(err => {
+                    res.status(400).send(err);
+                });
+    })
 }

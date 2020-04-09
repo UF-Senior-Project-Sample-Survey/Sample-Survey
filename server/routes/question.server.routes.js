@@ -11,7 +11,10 @@ router.route('/all')
 router.route('/find/:id')
   .get(question.findById);
 
-//TODO: Test/example Route. Test it in a better manner and remove this
-router.route('/getAnAnswer/:id')
-  .get(question.selectRandomAnswer);
+router.route('/delete/:id')
+  .delete(question.deleteQuestion);
+
+router.route('/update/:id')
+  .post(question.updateQuestion);
+
 module.exports = router;
