@@ -1,0 +1,738 @@
+
+.custom-container {
+    text-align: center;
+    padding-top: 80px;
+    font-size: xx-large;
+    font-weight: 600;
+    min-width: 600px;
+    align-content: center;
+}
+
+.custom-container .page-header {
+    font-size: xx-large;
+    padding: 20px;
+}
+
+.custom-container .page-selection {
+    font-size: x-large;
+}
+
+.custom-container .page-selection .selection {
+    min-width: 350px;
+    font-size: large;
+    font-weight: 600;
+    height: 50px;
+    margin: 10px;
+    background-color: rgb(142, 198, 247);
+    border-radius: 7px;
+    border-color: rgb(113, 158, 197);
+}
+
+.custom-container .page-selection .selection:hover {
+    cursor: pointer;
+    background-color: rgb(89, 173, 247);
+}
+
+.custom-container .page-body {
+    font-size: medium;
+    margin: 30px;
+    width: 600px;
+    height: 600px;
+    display: inline-flex;
+    flex-direction: column;
+    border-style: solid;
+    text-align: center;
+}
+
+.custom-container .page-body .myRow {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+}
+
+.custom-container .page-body .myRow1 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+}
+.custom-container .page-body .myRow2 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+}
+.custom-container .page-body .myRow3 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+}
+.custom-container .page-body .myRow4 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+}
+.custom-container .page-body .myRow5 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+}
+.custom-container .page-body .myRow6 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+}
+.custom-container .page-body .myRow7 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+}
+.custom-container .page-body .myRow8 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+}
+.custom-container .page-body .myRow9 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+}
+.custom-container .page-body .myRow10 {
+    height: 60px;
+    position: center;
+    margin-top: 10px;
+}
+
+.custom-container .page-body .myRow .indiv {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(194, 194, 194);
+}
+
+.custom-container .page-body .myRow1 .indiv1 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(245, 245, 245);
+}
+.custom-container .page-body .myRow2 .indiv2 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(235, 235, 235);
+}
+.custom-container .page-body .myRow3 .indiv3 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(225, 225, 225);
+}
+.custom-container .page-body .myRow4 .indiv4 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(215, 215, 215);
+}
+.custom-container .page-body .myRow5 .indiv5 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(205, 205, 205);
+}
+.custom-container .page-body .myRow6 .indiv6 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(195, 195, 195);
+}
+.custom-container .page-body .myRow7 .indiv7 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(185, 185, 185);
+}
+.custom-container .page-body .myRow8 .indiv8 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(175, 175, 175);
+}
+.custom-container .page-body .myRow9 .indiv9 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(165, 165, 165);
+}
+.custom-container .page-body .myRow10 .indiv10 {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(155, 155, 155);
+}
+
+.custom-container .page-body .myRow .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+
+.custom-container .page-body .myRow1 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+.custom-container .page-body .myRow2 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+.custom-container .page-body .myRow3 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+.custom-container .page-body .myRow4 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+.custom-container .page-body .myRow5 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+.custom-container .page-body .myRow6 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+.custom-container .page-body .myRow7 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+.custom-container .page-body .myRow8 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+.custom-container .page-body .myRow9 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+.custom-container .page-body .myRow10 .indiv-selected {
+    display: inline-block;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    background-color: rgb(255, 243, 77);
+}
+
+.custom-container .nav {
+    padding-bottom: 20px;
+    width: 100%;
+    height: 90px;
+    min-width: 650px;
+  }
+
+  .custom-container .nav .reset {
+    background-color: rgb(27, 27, 27);
+    color: white;
+    height: 40px;
+    font-size: large;
+    margin-right: 50px;
+    border-radius: 5px;
+    width: 150px;
+    }
+    
+    .custom-container .nav .generate {
+    background-color: rgb(27, 27, 27);
+    color: white;
+    height: 40px;
+    font-size: large;
+    margin-top: 50px;
+    border-radius: 5px;
+    width: 300px;
+    }
+
+    .custom-container .nav .reset:hover {
+        cursor: pointer;
+        background-color: rgb(61, 61, 61);
+    }
+        
+    .custom-container .nav .generate:hover {
+        background-color: rgb(61, 61, 61);
+        cursor: pointer;
+    }    
+
+           
+    .custom-container .page-body .myRow-cluster1 .indiv-cluster1 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(245, 245, 245);
+    }
+    .custom-container .page-body .myRow-cluster2 .indiv-cluster2 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(235, 235, 235);
+    }
+    .custom-container .page-body .myRow-cluster3 .indiv-cluster3 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(225, 225, 225);
+    }
+    .custom-container .page-body .myRow-cluster4 .indiv-cluster4 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(215, 215, 215);
+    }
+    .custom-container .page-body .myRow-cluster5 .indiv-cluster5 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(205, 205, 205);
+    }
+    .custom-container .page-body .myRow-cluster6 .indiv-cluster6 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(195, 195, 195);
+    }
+    .custom-container .page-body .myRow-cluster7 .indiv-cluster7 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(185, 185, 185);
+    }
+    .custom-container .page-body .myRow-cluster8 .indiv-cluster8 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(175, 175, 175);
+    }
+    .custom-container .page-body .myRow-cluster9 .indiv-cluster9 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(165, 165, 165);
+    }
+    .custom-container .page-body .myRow-cluster10 .indiv-cluster10 {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(155, 155, 155);
+    }
+
+    .custom-container .page-body .myRow-cluster1 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+    }
+    .custom-container .page-body .myRow-cluster2 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+    }
+    .custom-container .page-body .myRow-cluster3 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+    }
+    .custom-container .page-body .myRow-cluster4 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+    }
+    .custom-container .page-body .myRow-cluster5 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+    }
+    .custom-container .page-body .myRow-cluster6 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+    }
+    .custom-container .page-body .myRow-cluster7 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+    }
+    .custom-container .page-body .myRow-cluster8 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+    }
+    .custom-container .page-body .myRow-cluster9 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+        border-bottom-style: dashed;
+        border-bottom-width: 2px;
+    }
+    .custom-container .page-body .myRow-cluster10 {
+        height: 60px;
+        position: center;
+        margin-top: 10px;
+    }
+
+
+    .custom-container .page-body .myRow-cluster1 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }
+    .custom-container .page-body .myRow-cluster2 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }
+    .custom-container .page-body .myRow-cluster3 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }
+    .custom-container .page-body .myRow-cluster4 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }
+    .custom-container .page-body .myRow-cluster5 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }
+    .custom-container .page-body .myRow-cluster6 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }
+    .custom-container .page-body .myRow-cluster7 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }
+    .custom-container .page-body .myRow-cluster8 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }
+    .custom-container .page-body .myRow-cluster9 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }
+    .custom-container .page-body .myRow-cluster10 .indiv-selected {
+        display: inline-block;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 5px;
+        width: 30px;
+        height: 30px;
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        background-color: rgb(255, 243, 77);
+    }

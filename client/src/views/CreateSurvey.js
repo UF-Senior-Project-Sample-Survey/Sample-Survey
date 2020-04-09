@@ -4,22 +4,54 @@ import '../components/CreateSurvey/QuestionList.css';
 import './CreateSurvey.css';
 import QuestionList from '../components/CreateSurvey/QuestionList';
 import SurveyDesign from '../components/CreateSurvey/SurveyDesign';
-
-import data from '../testdata/data'; // testing data, will use actual questions in database for this
+import ReactDataSheet from 'react-datasheet';
+import 'react-datasheet/lib/react-datasheet.css';
+import axios from 'axios';
 
 class CreateSurvey extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      selectedCategories: [],
+    this.state = { 
+      questions: [],
+      selectedQuestions: [],
       currentStep: 1,
       numParticipants: 0,
-      samplingMethod: 'SRS',
-      excelName: 'dataset'
+      samplingMethod: 'srs',
+      grid: [
+        [{value: 1}, {value: 3}],
+        [{value: 2}, {value: 4}]
+      ]
     }
   }
 
+  componentDidMount = () => {
+    this.getQuestions();
+  }
+
+  getQuestions = () => {
+      axios.get('/api/question/all')
+          .then(res => {
+              this.setState({ questions: res.data });
+          })
+          .catch((err) => {
+              console.log(err);
+          });
+  }
+
+  getCategories = () => {
+    var mycategories = this.state.questions.map((q, i) => {
+        return(q.category);
+    });
+    var uniqueCategories = [];
+    for(var i = 0; i < mycategories.length; i++) {
+        if (!uniqueCategories.includes(mycategories[i])) {
+            uniqueCategories = uniqueCategories.concat([mycategories[i]]);
+        }
+    }
+
+    return(uniqueCategories);
+}
 
   continueSurvey() {
     var nextStep = this.state.currentStep + 1;
@@ -28,17 +60,38 @@ class CreateSurvey extends Component {
     });
   }
 
+  submitQuestions() {
+    var categories = this.getCategories();
+    const sc = categories
+      .filter( c => {
+        return(document.getElementById('check-' + c).checked);
+      })
+      .map(c => {
+        return(c);
+      })
+      
+    const sq = this.state.questions
+      .filter(q => {
+        return (sc.includes(q.category))
+      })
+      .map(q => {
+        return(q)
+      });
+
+    this.setState({
+      selectedQuestions: sq
+    });
+
+    var nextStep = this.state.currentStep + 1;
+    this.setState({
+      currentStep: nextStep
+    })
+  }
+
   goBack() {
     var nextStep = this.state.currentStep - 1;
     this.setState({
       currentStep: nextStep
-    });
-  }
-
-  addCategory(id) {
-    var list= this.state.selectedCategories.concat([id])
-    this.setState({
-      selectedCategories: list
     });
   }
   
@@ -54,56 +107,63 @@ class CreateSurvey extends Component {
     });
   }
 
-  setExcelName(name) {
-    this.setState({
-      excelName: name
-    });
-  }
-
 
   render() {
-
     var display;
 
     var questionSelection = 
-      <div>
+      <div className='custom-container'>
         <div>Select which questions you want featured in your survey:</div>
         <QuestionList
-          data={data}
-          addCategory={this.addCategory.bind(this)}
-          selectedCategories = {this.state.selectedCategories}
+          questions={this.state.questions}
+          categories={this.getCategories()}
         />
         <div className="bottombar">
-          <button class="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
+          <button className="button previous" type="button" value="Submit" onClick={() => this.goBack()}>Previous Step</button>
+          <button className="button next" type="button" value="Submit" onClick={() => this.submitQuestions()}>Next Step</button>
         </div>
       </div>
 
     var surveyDesign = 
-      <div>
+      <div className='container'>
         <div className = 'design'>Design your survey: </div>
         <SurveyDesign
           setNumberofParticipants={this.setNumberofParticipants.bind(this)}
           setSamplingMethod={this.setSamplingMethod.bind(this)}
-          setExcelName={this.setExcelName.bind(this)}
         />
         <div className="bottombar">
-          <button class="button previous" type="button" value="Submit" onClick={() => this.goBack()}>Previous Step</button>
-          <button class="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
+          <button className="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
         </div>
       </div>
 
+// add a generate spreadsheet button to set the values of the spreadsheet and call randomization fxns
+    var spreadSheet = 
+      <div className='custom-container'>
+        <ReactDataSheet
+          data={this.state.grid}
+          valueRenderer={(cell) => cell.value}
+          onCellsChanged={changes => {
+            const grid = this.state.grid.map(row => [...row])
+            changes.forEach(({cell, row, col, value}) => {
+              grid[row][col] = {...grid[row][col], value}
+            })
+            this.setState({grid})
+          }}
+        />
+      </div>
+
     if (this.state.currentStep === 1) {
-      display = questionSelection;
-    } else if (this.state.currentStep === 2) {
       display = surveyDesign;
+    } else if (this.state.currentStep === 2) {
+      display = questionSelection;
+    } else if (this.state.currentStep === 3) {
+      display = spreadSheet;
     }
 
       return (
         <div>
             <NavBar/>
-            <div className = 'container'>
-              {display}
-            </div>
+            {display}
         </div>
       );
     }

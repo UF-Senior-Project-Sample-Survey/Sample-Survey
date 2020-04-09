@@ -1,8 +1,17 @@
+.controlTab .custom-container {
+    padding-top: 80px;
+    font-size: xx-large;
+    font-weight: 600;
+    min-width: 600px;
+    background-color: wheat;
+    width: 100vw;
+    padding-left: 20px;
+}
+
 .controlTab{
     background-color: wheat;
     min-height: 100vh;
     display: flex;
-    padding-left: 20px;
     flex-direction: column;
     font-size: calc(9px + 2vmin);
     color: #282c34;
