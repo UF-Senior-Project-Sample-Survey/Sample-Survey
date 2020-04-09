@@ -6,19 +6,18 @@ import QuestionList from '../components/CreateSurvey/QuestionList';
 import SurveyDesign from '../components/CreateSurvey/SurveyDesign';
 import ReactDataSheet from 'react-datasheet';
 import 'react-datasheet/lib/react-datasheet.css';
-
-import mydata from '../testdata/data'; // testing data, will use actual questions in database for this
+import axios from 'axios';
 
 class CreateSurvey extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      selectedCategories: [],
+    this.state = { 
+      questions: [],
+      selectedQuestions: [],
       currentStep: 1,
       numParticipants: 0,
-      samplingMethod: 'SRS',
-      excelName: 'dataset',
+      samplingMethod: 'srs',
       grid: [
         [{value: 1}, {value: 3}],
         [{value: 2}, {value: 4}]
@@ -26,6 +25,33 @@ class CreateSurvey extends Component {
     }
   }
 
+  componentDidMount = () => {
+    this.getQuestions();
+  }
+
+  getQuestions = () => {
+      axios.get('/api/question/all')
+          .then(res => {
+              this.setState({ questions: res.data });
+          })
+          .catch((err) => {
+              console.log(err);
+          });
+  }
+
+  getCategories = () => {
+    var mycategories = this.state.questions.map((q, i) => {
+        return(q.category);
+    });
+    var uniqueCategories = [];
+    for(var i = 0; i < mycategories.length; i++) {
+        if (!uniqueCategories.includes(mycategories[i])) {
+            uniqueCategories = uniqueCategories.concat([mycategories[i]]);
+        }
+    }
+
+    return(uniqueCategories);
+}
 
   continueSurvey() {
     var nextStep = this.state.currentStep + 1;
@@ -34,18 +60,27 @@ class CreateSurvey extends Component {
     });
   }
 
-  submitQuestions(d) {
-    const sc = d
+  submitQuestions() {
+    var categories = this.getCategories();
+    const sc = categories
       .filter( c => {
-        return(document.getElementById('check' + c.id).checked);
+        return(document.getElementById('check-' + c).checked);
       })
       .map(c => {
-        return(c.id);
+        return(c);
       })
       
-      this.setState({
-        selectedCategories: sc
+    const sq = this.state.questions
+      .filter(q => {
+        return (sc.includes(q.category))
       })
+      .map(q => {
+        return(q)
+      });
+
+    this.setState({
+      selectedQuestions: sq
+    });
 
     var nextStep = this.state.currentStep + 1;
     this.setState({
@@ -74,18 +109,18 @@ class CreateSurvey extends Component {
 
 
   render() {
-
     var display;
 
     var questionSelection = 
       <div className='custom-container'>
         <div>Select which questions you want featured in your survey:</div>
         <QuestionList
-          data={mydata}
+          questions={this.state.questions}
+          categories={this.getCategories()}
         />
         <div className="bottombar">
           <button className="button previous" type="button" value="Submit" onClick={() => this.goBack()}>Previous Step</button>
-          <button className="button next" type="button" value="Submit" onClick={() => this.submitQuestions(mydata)}>Next Step</button>
+          <button className="button next" type="button" value="Submit" onClick={() => this.submitQuestions()}>Next Step</button>
         </div>
       </div>
 
@@ -103,6 +138,7 @@ class CreateSurvey extends Component {
 
 // add a generate spreadsheet button to set the values of the spreadsheet and call randomization fxns
     var spreadSheet = 
+      <div className='custom-container'>
         <ReactDataSheet
           data={this.state.grid}
           valueRenderer={(cell) => cell.value}
@@ -114,6 +150,7 @@ class CreateSurvey extends Component {
             this.setState({grid})
           }}
         />
+      </div>
 
     if (this.state.currentStep === 1) {
       display = surveyDesign;

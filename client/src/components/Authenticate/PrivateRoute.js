@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+// route that checks to see if user is logged in before allowing access, used for user-only accessible pages
 const PrivateRoute = ({ component: Component, auth, ...rest }) => (
   <Route
     {...rest}

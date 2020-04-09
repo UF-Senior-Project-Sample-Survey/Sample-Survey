@@ -9,9 +9,8 @@
 }
 
 .question-list .list-container{
-    padding: 20px;
     min-width: 800px;
-    display: inline;
+    margin: 20px;
 }
 
 .question-list .list-container .question-container{

@@ -36,7 +36,7 @@ class SurveyDesign extends Component {
                         Cluster Sampling
                     </button>
                 </div>
-                <div className='myLink'><Link to="/samplingmethods" classname="a">Learn more about these sampling methods</Link></div>
+                <div className='myLink'><Link to="/samplingmethods" className="a">Learn more about these sampling methods</Link></div>
             </form>
         </div>
         );
