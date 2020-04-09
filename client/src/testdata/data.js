@@ -6,24 +6,35 @@
 export default [
     {
       id: 0,
-      text: 'What is your name?'
+      text: 'Required', 
+      questions: [{qid: 0, qtext: 'What is your name?'}, {qid: 1, qtext: 'How old are you?'}, {qid: 2, qtext: 'Where do you live?'}, {qid: 3, qtext: 'Are you a felon?'}, {qid: 0, qtext: 'What is your name?'}, {qid: 1, qtext: 'How old are you?'}, {qid: 2, qtext: 'Where do you live?'}, {qid: 3, qtext: 'Are you a felon?'}]
     }, {
       id: 1,
-      text: 'What is your age (in years)?'
+      text: 'Financial', 
+      questions: [{qid: 0, qtext: 'What is your name?'}, {qid: 1, qtext: 'How old are you?'}, {qid: 2, qtext: 'Where do you live?'}, {qid: 3, qtext: 'Are you a felon?'}]
     }, {
       id: 2,
-      text: 'What is your gender?'
+      text: 'Pop Culture',
+      questions: [{qid: 0, qtext: 'What is your name?'}, {qid: 1, qtext: 'How old are you?'}, {qid: 2, qtext: 'Where do you live?'}, {qid: 3, qtext: 'Are you a felon?'}]
     }, {
       id: 3,
-      text: 'Do you have anxiety?'
+      text: 'Depression',
+      questions: [{qid: 0, qtext: 'What is your name?'}, {qid: 1, qtext: 'How old are you?'}, {qid: 2, qtext: 'Where do you live?'}, {qid: 3, qtext: 'Are you a felon?'}]
     }, {
       id: 4,
-      text: 'Do you prefer "The Office" or "Friends"?'
+      text: 'Anxiety',
+      questions: [{qid: 0, qtext: 'What is your name?'}, {qid: 1, qtext: 'How old are you?'}, {qid: 2, qtext: 'Where do you live?'}, {qid: 3, qtext: 'Are you a felon?'}]
     }, {
       id: 5,
-      text: 'Do you care about the environment?'
+      text: 'Environmental',
+      questions: [{qid: 0, qtext: 'What is your name?'}, {qid: 1, qtext: 'How old are you?'}, {qid: 2, qtext: 'Where do you live?'}, {qid: 3, qtext: 'Are you a felon?'}]
     }, {
         id: 6,
-        text: 'What state do you live in?'
+        text: 'Political',
+        questions: [{qid: 0, qtext: 'What is your name?'}, {qid: 1, qtext: 'How old are you?'}, {qid: 2, qtext: 'Where do you live?'}, {qid: 3, qtext: 'Are you a felon?'}]
+    }, {
+        id: 7,
+        text: 'Random',
+        questions: [{qid: 0, qtext: 'What is your name?'}, {qid: 1, qtext: 'How old are you?'}, {qid: 2, qtext: 'Where do you live?'}, {qid: 3, qtext: 'Are you a felon?'}]
     }
   ]

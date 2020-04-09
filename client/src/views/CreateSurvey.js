@@ -1,7 +1,9 @@
 import NavBar from "../components/Header/NavBar";
 import React, {Component} from 'react';
+import '../components/CreateSurvey/QuestionList.css';
 import './CreateSurvey.css';
 import QuestionList from '../components/CreateSurvey/QuestionList';
+import SurveyDesign from '../components/CreateSurvey/SurveyDesign';
 
 import data from '../testdata/data'; // testing data, will use actual questions in database for this
 
@@ -10,25 +12,97 @@ class CreateSurvey extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedQuestions: []
+      selectedCategories: [],
+      currentStep: 1,
+      numParticipants: 0,
+      samplingMethod: 'SRS',
+      excelName: 'dataset'
     }
   }
 
-  addQuestion(id) {
-    const list = this.state.selectedQuestions.concat([id])
+
+  continueSurvey() {
+    var nextStep = this.state.currentStep + 1;
     this.setState({
-      selectedQuestions: list
-    })
+      currentStep: nextStep
+    });
+  }
+
+  goBack() {
+    var nextStep = this.state.currentStep - 1;
+    this.setState({
+      currentStep: nextStep
+    });
+  }
+
+  addCategory(id) {
+    var list= this.state.selectedCategories.concat([id])
+    this.setState({
+      selectedCategories: list
+    });
   }
   
+  setNumberofParticipants(n) {
+    this.setState({
+      numParticipants: n
+    });
+  }
+
+  setSamplingMethod(s) {
+    this.setState({
+      samplingMethod: s
+    });
+  }
+
+  setExcelName(name) {
+    this.setState({
+      excelName: name
+    });
+  }
+
+
   render() {
+
+    var display;
+
+    var questionSelection = 
+      <div>
+        <div>Select which questions you want featured in your survey:</div>
+        <QuestionList
+          data={data}
+          addCategory={this.addCategory.bind(this)}
+          selectedCategories = {this.state.selectedCategories}
+        />
+        <div className="bottombar">
+          <button class="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
+        </div>
+      </div>
+
+    var surveyDesign = 
+      <div>
+        <div className = 'design'>Design your survey: </div>
+        <SurveyDesign
+          setNumberofParticipants={this.setNumberofParticipants.bind(this)}
+          setSamplingMethod={this.setSamplingMethod.bind(this)}
+          setExcelName={this.setExcelName.bind(this)}
+        />
+        <div className="bottombar">
+          <button class="button previous" type="button" value="Submit" onClick={() => this.goBack()}>Previous Step</button>
+          <button class="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
+        </div>
+      </div>
+
+    if (this.state.currentStep === 1) {
+      display = questionSelection;
+    } else if (this.state.currentStep === 2) {
+      display = surveyDesign;
+    }
+
       return (
         <div>
             <NavBar/>
-            <div className = "container">
-              <QuestionList
-                data={data}
-              />
+            <div className = 'container'>
+              {display}
             </div>
         </div>
       );

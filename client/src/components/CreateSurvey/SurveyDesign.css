@@ -1,0 +1,65 @@
+
+.formContainer form .selection {
+    min-width: 350px;
+    font-size: large;
+    font-weight: 600;
+    height: 100px;
+    margin: 10px;
+    background-color: rgb(142, 198, 247);
+    border-radius: 10px;
+}
+
+.formContainer form .selection:hover {
+    cursor: pointer;
+    background-color: rgb(89, 173, 247);
+}
+
+.formContainer form label {
+    font-size: large;
+}
+
+.formContainer form .myLink {
+    padding-top: 10px;
+    font-size: medium;
+    margin-bottom: 25px;
+}
+
+.formContainer {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.formContainer form .botnavbar{
+    padding-top: 50px;
+    width: 100%;
+    height: 90px;
+    display: inline-block;
+    min-width: 650px;
+}
+
+.formContainer form .botnavbar .buttonholder .previous {
+    background-color: red;
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    font-size: small;
+    float: left;
+}
+
+.formContainer form .botnavbar .buttonholder .next {
+    background-color: red;
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    font-size: small;
+    float: right;
+}
+
+.formContainer form .botnavbar .buttonholder .previous:hover {
+    cursor: pointer;
+}
+
+.formContainer form .botnavbar .buttonholder .next:hover {
+    cursor: pointer;
+}
