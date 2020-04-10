@@ -1,0 +1,14 @@
+.entryTable{
+    background-color: wheat;
+    min-height: 100vh;
+    display: flex;
+    padding-left: 20px;
+    flex-direction: column;
+    font-size: calc(9px + 1vmin);
+    color: #282c34;
+}
+
+.entryTable td{
+    text-align: left;
+    padding-right: 4px;
+}

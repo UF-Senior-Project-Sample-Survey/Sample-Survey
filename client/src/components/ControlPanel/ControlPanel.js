@@ -36,7 +36,7 @@ class ControlPanel extends Component {
                     <td><Link className="controlLink" to={'question/edit/' + curQuestion._id}>Edit</Link></td>
                     <td><button onClick={() => this.deleteQuestion(curQuestion._id)}>Delete</button></td>
                 </tr>
-            )       
+            )
         })
     }
 
@@ -55,11 +55,12 @@ class ControlPanel extends Component {
 
     render() {
         return (
-            <div className = 'controlTab'>
-                <NavBar/>
+            <div className='controlTab'>
+                <NavBar />
                 <div className="custom-container">
-                    <Link className="controlLink" to='question/create' style={{ marginTop: 20 }}>Create Question</Link>
-                    <table style={{ width: 400 }}>
+                    <Link className="controlLink" to='peopleDemo' style={{ marginTop: 20 }}> People Maker Demo</Link> <br /> <br />
+                    <Link className="controlLink" to='question/create' style={{ marginTop: 20 }}>Create Question</Link> 
+                    <table style={{ width: 1000}}>
                         <thead>
                             <tr className="controlRow">
                                 <th>Questions</th>

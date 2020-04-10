@@ -50,24 +50,47 @@ module.exports.randSurname = () => {
     return sName;
 }
 
-module.exports.randJob = () => {
+module.exports.randJob = (education) => {
     let totalWeightJob = 0;
-    for (i in jobInfo.jobs) {
-        totalWeightJob += jobInfo.jobs[i].weight;
+    var validJobs = jobInfo.jobs.filter((currJob) => validJob(education, currJob.minimumEducation));
+    for (i in validJobs) {
+        totalWeightJob += validJobs[i].weight;
     };
     var weight = Math.floor(Math.random() * totalWeightJob);
-    for (i in jobInfo.jobs) {
-        var jobTitle = jobInfo.jobs[i].title;
-        weight -= jobInfo.jobs[i].weight;
+    for (i in validJobs) {
+        var jobTitle = validJobs[i].title;
+        weight -= validJobs[i].weight;
         if (weight <= 0)
             break;
     }
     return jobTitle;
 }
 
+validJob = (personEducation, educationRequirement) => {
+    if (educationToNumber(personEducation) >= educationToNumber(educationRequirement))
+        return true;
+    else
+        return false;
+}
+
+educationToNumber = (education) => {
+    if (education == "Some High School")
+        return 1;
+    else if (education == "High School or GED")
+        return 2;
+    else if (education == "Associate's Degree")
+        return 3;
+    else if (education == "Bachelor's Degree")
+        return 4;
+    else if (education == "Master's Degree")
+        return 5;
+    else if (education == "Doctorate Degree")
+        return 6;
+}
+
 module.exports.randSalary = (experience, title) => {
     var job = getJobByTitle(title);
-    if(!job)
+    if (!job)
         return; //Return undefined if no job found with title.
     var salary;
     for (i in job.salary) {
@@ -90,7 +113,7 @@ getJobByTitle = (title) => {
 module.exports.randEducation = () => {
     var education;
 
-    switch(Math.floor(Math.random() * 6)){
+    switch (Math.floor(Math.random() * 6)) {
         case 0:
             education = "Some High School";
             break;
@@ -106,7 +129,7 @@ module.exports.randEducation = () => {
         case 4:
             education = "Master's Degree";
             break;
-        case 5: 
+        case 5:
             education = "Doctorate Degree";
             break;
     }
@@ -127,7 +150,7 @@ module.exports.randMarital = () => {
         status = "Divorced";
     else
         status = "Widowed";
-    
+
     return status;
 }
 
@@ -137,5 +160,46 @@ module.exports.randCity = () => {
         totalJobs++;
     let cityName = cities.cities[Math.floor(Math.random() * totalJobs)].name;
     return cityName;
-        
+}
+
+module.exports.randHousehold = (maritalStatus) => {
+    if (maritalStatus == "Never Married") {
+        let kidRoll = Math.random();
+        if (kidRoll <= .8)
+            return 1;
+        else if (kidRoll <= .9)
+            return 2;
+        else
+            return 3;
+    }
+    else if (maritalStatus == "Married") {
+        let kidRoll = Math.random();
+        if (kidRoll <= .3)
+            return 2;
+        else if (kidRoll <= .6)
+            return 3;
+        else if (kidRoll <= .8)
+            return 4;
+        else if (kidRoll <= .95)
+            return 5;
+        else if (kidRoll <= .98)
+            return 6;
+        else
+            return 7;
+    }
+    else {
+        let kidRoll = Math.random();
+        if (kidRoll <= .3)
+            return 1;
+        else if (kidRoll <= .6)
+            return 2;
+        else if (kidRoll <= .8)
+            return 3;
+        else if (kidRoll <= .95)
+            return 4;
+        else if (kidRoll <= .98)
+            return 5;
+        else
+            return 6;
+    }
 }

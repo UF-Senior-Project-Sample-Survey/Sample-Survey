@@ -14,10 +14,12 @@ import store from "./store";
 import NotFound from "./views/NotFound";
 import PrivateRoute from "./components/Authenticate/PrivateRoute";
 import Sampling from "./views/Sampling";
+
 import ControlPanel from "./components/ControlPanel/ControlPanel";
 import ViewQuestion from "./components/ControlPanel/ViewQuestion/ViewQuestion";
 import CreateQuestion from "./components/ControlPanel/AddQuestion/AddQuestion";
 import EditQuestion from "./components/ControlPanel/EditQuestion/EditQuestion";
+import peopleDemo from "./components/ControlPanel/PeopleDemo/PeopleDemo";
 
 // check for a token to keep the user logged in
 if (localStorage.jwtToken) {
@@ -48,7 +50,8 @@ class App extends Component {
               <Route exact path="/controlpanel" component={ControlPanel} />
               <Route exact path="/question/view/:id" component={ViewQuestion} />
               <Route exact path="/question/edit/:id" component={EditQuestion} />
-              <Route path="/question/create" component={CreateQuestion} />
+              <Route exact path="/question/create" component={CreateQuestion} />
+              <Route exact path="/peopleDemo" component={peopleDemo}/>
 
               <Route exact path="/">
                 <Redirect to="/landing" />
