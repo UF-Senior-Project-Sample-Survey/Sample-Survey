@@ -1,8 +1,19 @@
 const mNames = require('./MaleNames.json');
 const fNames = require('./FemaleNames.json');
 const sNames = require('./Surnames.json');
-const jobInfo = require('./job-info.json');
 const states = require('./States.json');
+
+module.exports.randGender = () => {
+    let genderRoll = Math.random()*100;
+    if (genderRoll <= 49)
+        return "Male"
+    else if (genderRoll <= 98)
+        return "Female"
+    else if (genderRoll <= 99)
+        return "Other"
+    else 
+        return "I prefer not to disclose"
+}
 
 module.exports.randFemale = () => {
     let totalWeightFemale = 0;
@@ -18,7 +29,6 @@ module.exports.randFemale = () => {
     }
     return fName;
 };
-
 
 module.exports.randMale = () => {
     let totalWeightMale = 0;
@@ -48,45 +58,7 @@ module.exports.randSurname = () => {
             break;
     }
     return sName;
-}
-
-module.exports.randJob = (education) => {
-    let totalWeightJob = 0;
-    var validJobs = jobInfo.jobs.filter((currJob) => validJob(education, currJob.minimumEducation));
-    for (i in validJobs) {
-        totalWeightJob += validJobs[i].weight;
-    };
-    var weight = Math.floor(Math.random() * totalWeightJob);
-    for (i in validJobs) {
-        var jobTitle = validJobs[i].title;
-        weight -= validJobs[i].weight;
-        if (weight <= 0)
-            break;
-    }
-    return jobTitle;
-}
-
-validJob = (personEducation, educationRequirement) => {
-    if (educationToNumber(personEducation) >= educationToNumber(educationRequirement))
-        return true;
-    else
-        return false;
-}
-
-educationToNumber = (education) => {
-    if (education == "Some High School")
-        return 1;
-    else if (education == "High School or GED")
-        return 2;
-    else if (education == "Associate's Degree")
-        return 3;
-    else if (education == "Bachelor's Degree")
-        return 4;
-    else if (education == "Master's Degree")
-        return 5;
-    else if (education == "Doctorate Degree")
-        return 6;
-}
+};
 
 module.exports.randSalary = (experience, title) => {
     var job = getJobByTitle(title);
@@ -101,14 +73,27 @@ module.exports.randSalary = (experience, title) => {
         }
     }
     return salary;
-}
+};
 
-getJobByTitle = (title) => {
-    var job = jobInfo.jobs.filter((job) => {
-        return job.title == title;
-    })
-    return job[0];
-}
+module.exports.randEmployment = (age) => {
+    let roll = Math.random()*100;
+        if (roll <= 4.4)
+            return "Unemployed";
+        else if (roll <= 9.4){
+            if (age < 30)
+                return "Student";
+            else if (age > 66)
+                return "Retired";
+            else 
+                return "Full time";
+        }
+        else if (roll <= 15)
+            return "Less than part time";
+        else if (roll <= 25)
+            return "At least part time";
+        else
+            return "Full time";
+};
 
 module.exports.randEducation = () => {
     var education;
@@ -135,7 +120,7 @@ module.exports.randEducation = () => {
     }
 
     return education;
-}
+};
 
 module.exports.randMarital = () => {
     let rand = (Math.random() * 100)
@@ -152,7 +137,7 @@ module.exports.randMarital = () => {
         status = "Widowed";
 
     return status;
-}
+};
 
 module.exports.randState = () => {
     let totalStates = 0;
@@ -160,7 +145,7 @@ module.exports.randState = () => {
         totalStates++;
     let stateName = states.states[Math.floor(Math.random() * totalStates)].name;
     return stateName;
-}
+};
 
 module.exports.randHousehold = (maritalStatus) => {
     if (maritalStatus == "Never Married") {
@@ -202,4 +187,4 @@ module.exports.randHousehold = (maritalStatus) => {
         else
             return 6;
     }
-}
+};
