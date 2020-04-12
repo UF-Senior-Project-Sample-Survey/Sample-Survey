@@ -2,19 +2,10 @@ const person = require('../controllers/person.server.controller.js'),
   express = require('express'),
   router = express.Router()
 
-router.route('/')
-  .get(person.hello);
+router.route('/create/:amount')
+  .get(person.createPeople);
 
-router.route('/add')
-  .post(person.addPerson);
-
-router.route('/find/:id')
-  .get(person.findById);
-
-router.route('/add/random')
-  .post(person.addRandom);
-
-router.route('/all')
-  .get(person.allPeople);
+router.route('/getAnswers/:amount')
+  .post(person.getAnswer);
 
 module.exports = router;

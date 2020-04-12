@@ -5,14 +5,14 @@ const Person = require('../models/person.server.model');
 //TODO: Make householdSize dependent on marital status?
 
 module.exports.createPerson = () => {
-    let person = new Person({
+    let person = {
         age: Math.floor(Math.random() * 55) + 20,
         maritalStatus: personProp.randMarital(),
-        householdSize: Math.floor(Math.random() * 8),
         education: personProp.randEducation(),
-        job: personProp.randJob(),
         location: personProp.randCity()
-    });
+    };
+    person.householdSize = personProp.randHousehold(person.maritalStatus);
+    person.job = personProp.randJob(person.education);
     person.yearsExperience = Math.floor(Math.random() * ((person.age)-17)) + 1;
     person.salary = personProp.randSalary(person.yearsExperience, person.job);
     
