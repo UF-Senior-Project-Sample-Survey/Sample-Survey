@@ -36,7 +36,7 @@
     min-width: 650px;
 }
 
-.custom-container .bottombar .previous {
+.previous {
   background-color: rgb(27, 27, 27);
   color: white;
   width: 120px;

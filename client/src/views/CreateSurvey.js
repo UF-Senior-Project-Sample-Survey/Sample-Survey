@@ -4,7 +4,7 @@ import '../components/CreateSurvey/QuestionList.css';
 import './CreateSurvey.css';
 import QuestionList from '../components/CreateSurvey/QuestionList';
 import SurveyDesign from '../components/CreateSurvey/SurveyDesign';
-import ReactDataSheet from 'react-datasheet';
+import SampleDisplay from '../components/CreateSurvey/SampleDisplay';
 import 'react-datasheet/lib/react-datasheet.css';
 import axios from 'axios';
 
@@ -17,11 +17,7 @@ class CreateSurvey extends Component {
       selectedQuestions: [],
       currentStep: 1,
       numParticipants: 0,
-      samplingMethod: 'srs',
-      grid: [
-        [{value: 1}, {value: 3}],
-        [{value: 2}, {value: 4}]
-      ]
+      samplingMethod: 'srs'
     }
   }
 
@@ -139,16 +135,10 @@ class CreateSurvey extends Component {
 // add a generate spreadsheet button to set the values of the spreadsheet and call randomization fxns
     var spreadSheet = 
       <div className='custom-container'>
-        <ReactDataSheet
-          data={this.state.grid}
-          valueRenderer={(cell) => cell.value}
-          onCellsChanged={changes => {
-            const grid = this.state.grid.map(row => [...row])
-            changes.forEach(({cell, row, col, value}) => {
-              grid[row][col] = {...grid[row][col], value}
-            })
-            this.setState({grid})
-          }}
+        <SampleDisplay
+          questions={this.state.selectedQuestions}
+          numParticipants={this.state.numParticipants}
+          goBack={this.goBack.bind(this)}
         />
       </div>
 
