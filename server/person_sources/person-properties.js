@@ -2,7 +2,7 @@ const mNames = require('./MaleNames.json');
 const fNames = require('./FemaleNames.json');
 const sNames = require('./Surnames.json');
 const jobInfo = require('./job-info.json');
-const cities = require('./Cities.json');
+const states = require('./States.json');
 
 module.exports.randFemale = () => {
     let totalWeightFemale = 0;
@@ -154,12 +154,12 @@ module.exports.randMarital = () => {
     return status;
 }
 
-module.exports.randCity = () => {
-    let totalJobs = 0;
-    for (i in cities.cities)
-        totalJobs++;
-    let cityName = cities.cities[Math.floor(Math.random() * totalJobs)].name;
-    return cityName;
+module.exports.randState = () => {
+    let totalStates = 0;
+    for (i in states.states)
+        totalStates++;
+    let stateName = states.states[Math.floor(Math.random() * totalStates)].name;
+    return stateName;
 }
 
 module.exports.randHousehold = (maritalStatus) => {

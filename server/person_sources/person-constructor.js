@@ -9,7 +9,7 @@ module.exports.createPerson = () => {
         age: Math.floor(Math.random() * 55) + 20,
         maritalStatus: personProp.randMarital(),
         education: personProp.randEducation(),
-        location: personProp.randCity()
+        location: personProp.randState()
     };
     person.householdSize = personProp.randHousehold(person.maritalStatus);
     person.job = personProp.randJob(person.education);
