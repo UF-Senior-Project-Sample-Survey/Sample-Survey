@@ -15,6 +15,10 @@ class SampleDisplay extends Component {
         }
     }
 
+    goBack() {
+        this.props.goBack();
+    }
+
     componentDidMount() {
         this.getPeople();
     }
@@ -78,8 +82,8 @@ class SampleDisplay extends Component {
         mygrid[0] = [{value: 'Name'}, {value:'Age'}, {value: 'Gender'}, {value:'Marital Status'}, {value:'Education'}, {value:'Employment'}, {value:'Location'}, {value:'Household Size'}];
         mygrid[0] = mygrid[0].concat(qPrompts);
 
-        for(var i = 0; i < people.length; i++) {
-            var person = people[i];
+        for(var k = 0; k < people.length; k++) {
+            var person = people[k];
             var curPerson = [
                 {value: person.name.first + " " + person.name.last}, 
                 {value: person.age}, 
@@ -108,14 +112,21 @@ class SampleDisplay extends Component {
 
     render() {
         return(
-            <div>
-                {this.state.button}
+            <div className = 'sheet-page-body'>
+                <div className = 'data-header'>Survey Data</div>
+                <div className = "spreadsheet-button">
+                    <button className='button regenerate' type='button' value='regen' onClick = {() => this.getPeople()}>Regenerate Sample</button>
+                    <div className = 'csv-link'>{this.state.button}</div>
+                </div>
                 <div className = 'spreadsheet-container'>
                     <ReactDataSheet
-                    data={this.state.mygrid}
-                    valueRenderer={(cell) => cell.value}
+                        data={this.state.mygrid}
+                        valueRenderer={(cell) => cell.value}
                     />
                 </div>
+                <div className="bottombar">
+                    <button className="button previouss" type="button" value="Submit" onClick={() => this.goBack()}>Previous Step</button>
+                </div>    
             </div>
         );
     }

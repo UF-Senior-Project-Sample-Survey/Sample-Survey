@@ -138,6 +138,7 @@ class CreateSurvey extends Component {
         <SampleDisplay
           questions={this.state.selectedQuestions}
           numParticipants={this.state.numParticipants}
+          goBack={this.goBack.bind(this)}
         />
       </div>
 

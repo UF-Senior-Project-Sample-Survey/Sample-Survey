@@ -1,5 +1,67 @@
+
 .spreadsheet-container {
-    padding: 75px;
     font-size: small;
     font-weight: 400;
+    background-color: aliceblue;
+    max-height: 700px;
+    max-width: 1200px;
+    overflow: scroll;
+    display: inline-block;
+}
+
+.spreadsheet-button {
+    font-size: large;
+    font-weight: 400;
+    width: 1200px;
+    display: inline-block;
+}
+
+.sheet-page-body {
+    font-size: large;
+    padding: 30px;
+    padding-top: 90px;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+}
+
+.data-header{
+    font-size: xx-large;
+    text-align: center;
+}
+
+.csv-link {
+    float: right;
+}
+
+.regenerate{
+    background-color: rgb(142, 198, 247);
+    float: left;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+}
+
+.regenerate:hover{
+    cursor: pointer;
+    background-color: rgb(89, 173, 247);
+}
+
+.previouss {
+    background-color: rgb(27, 27, 27);
+    color: white;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    float: left;
+    padding-top: 0px;
+}
+
+.bottombar{
+    max-width: 1200px;
 }
