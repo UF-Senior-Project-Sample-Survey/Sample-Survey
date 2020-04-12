@@ -15,10 +15,6 @@ class PeopleDemo extends Component {
         this.onChange = this.onChange.bind(this);
     }
 
-    formatNumber(num) {
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    }
-
     people = () => {
         return this.state.people.map((curPerson, i) => {
             return (
@@ -29,10 +25,8 @@ class PeopleDemo extends Component {
                     <td>{curPerson.maritalStatus}</td>
                     <td>{curPerson.householdSize}</td>
                     <td>{curPerson.education}</td>
-                    <td>{curPerson.job}</td>
+                    <td>{curPerson.employment}</td>
                     <td>{curPerson.location}</td>
-                    <td>{curPerson.yearsExperience}</td>
-                    <td>{'$' + this.formatNumber(curPerson.salary)}</td>
                     <td>{curPerson.gender}</td>
                     <td><button onClick={(e) => this.getAnswers(e, curPerson)}>View Response</button></td>
                 </tr>
@@ -182,10 +176,8 @@ class PeopleDemo extends Component {
                             <td>Marital Status</td>
                             <td>Household Size</td>
                             <td>Education</td>
-                            <td>Job</td>
+                            <td>Employment</td>
                             <td>Location</td>
-                            <td>Years Experience</td>
-                            <td>Salary</td>
                             <td>Gender</td>
                         </thead>
                         <tbody>
