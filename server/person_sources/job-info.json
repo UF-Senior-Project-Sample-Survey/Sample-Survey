@@ -29,7 +29,7 @@
                     "range": 80000
                 }
             ],
-            "weight": 5,
+            "weight": 10,
             "minimumEducation": "Doctorate Degree"
         },
         {
@@ -61,7 +61,7 @@
                     "range": 12000
                 }
             ],
-            "weight": 20,
+            "weight": 10,
             "minimumEducation": "High School or GED"
         },
         {
@@ -83,7 +83,7 @@
                     "range": 14000
                 }
             ],
-            "weight": 20,
+            "weight": 10,
             "minimumEducation": "Some High School"
         }
     ]

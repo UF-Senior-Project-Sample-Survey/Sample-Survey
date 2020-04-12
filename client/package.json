@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "mdbreact":"git+https://github.com/mdbootstrap/React-Bootstrap-with-Material-Design.git#react-upgrade", 
+  "mdbreact": "git+https://github.com/mdbootstrap/React-Bootstrap-with-Material-Design.git#react-upgrade",
   "eslintConfig": {
     "extends": "react-app"
   },
