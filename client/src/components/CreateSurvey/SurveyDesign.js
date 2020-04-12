@@ -4,12 +4,22 @@ import {Link} from 'react-router-dom';
 
 class SurveyDesign extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            samplingmethod: ''
+        }
+    }
+
     setNumParticipants() {
         const n = this.nValue.value;
         this.props.setNumberofParticipants(n);
     }
 
     setSamplingMethod(s) {
+        this.setState({
+            samplingmethod: s
+        });
         this.props.setSamplingMethod(s)
     }
 
@@ -19,6 +29,26 @@ class SurveyDesign extends Component {
     }
 
     render() {
+        var srsbutton, stratbutton, clusterbutton;
+
+        if (this.state.samplingmethod === 'srs') {
+            srsbutton = "button selections";
+            stratbutton = "button selection";
+            clusterbutton = "button selection";
+        } else if (this.state.samplingmethod === 'stratified') {
+            srsbutton = "button selection";
+            stratbutton = "button selections";
+            clusterbutton = "button selection";
+        } else if (this.state.samplingmethod === 'cluster') {
+            srsbutton = "button selection";
+            stratbutton = "button selection";
+            clusterbutton = "button selections";
+        } else {
+            srsbutton = "button selection";
+            stratbutton = "button selection";
+            clusterbutton = "button selection";
+        }
+
         return (
         <div className = 'formContainer'>
             <form>
@@ -26,13 +56,13 @@ class SurveyDesign extends Component {
                 <input type="text" style={{width: '200px', marginLeft: '20px'}} ref={(value) => this.nValue = value} id="numPeople" name="numPeople" onChange={() => this.setNumParticipants()}></input> <br></br>
                 <label>Select a Sampling Method for Your Survey:</label><br></br>
                 <div>
-                    <button className="button selection" type="button" value="srs" onClick={() => this.setSamplingMethod('srs')}>
+                    <button className={srsbutton} type="button" value="srs" onClick={() => this.setSamplingMethod('srs')}>
                         Simple Random Sampling
                     </button>
-                    <button className="button selection" type="button" value="stratified" onClick={() => this.setSamplingMethod('stratified')}>
+                    <button className={stratbutton} type="button" value="stratified" onClick={() => this.setSamplingMethod('stratified')}>
                         Stratified Random Sampling
                     </button>
-                    <button className="button selection" type="button" value="cluster" onClick={() => this.setSamplingMethod('cluster')}>
+                    <button className={clusterbutton} type="button" value="cluster" onClick={() => this.setSamplingMethod('cluster')}>
                         Cluster Sampling
                     </button>
                 </div>

@@ -10,6 +10,17 @@
     border-color: rgb(113, 158, 197);
 }
 
+.formContainer form .selections {
+    min-width: 350px;
+    font-size: large;
+    font-weight: 600;
+    height: 100px;
+    margin: 10px;
+    background-color: rgb(89, 173, 247);
+    border-radius: 10px;
+    border-color: rgb(113, 158, 197);
+}
+
 .formContainer form .selection:hover {
     cursor: pointer;
     background-color: rgb(89, 173, 247);
