@@ -737,3 +737,13 @@
         border-width: 2px;
         background-color: rgb(255, 243, 77);
     }
+
+    .section-body2 {
+    font-size: medium;
+    margin: 30px;
+    width: 600px;
+    height: 600px;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    }
