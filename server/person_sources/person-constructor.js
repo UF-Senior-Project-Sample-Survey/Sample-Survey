@@ -1,35 +1,32 @@
 const personProp = require('./person-properties');
-const Person = require('../models/person.server.model');
-
-//TODO: Connect Job to education
-//TODO: Make householdSize dependent on marital status?
 
 module.exports.createPerson = () => {
     let person = {
+        name: {
+            first: '',
+            last: ''
+        },
         age: Math.floor(Math.random() * 55) + 20,
         maritalStatus: personProp.randMarital(),
         education: personProp.randEducation(),
         location: personProp.randState()
     };
     person.householdSize = personProp.randHousehold(person.maritalStatus);
-    person.job = personProp.randJob(person.education);
-    person.yearsExperience = Math.floor(Math.random() * ((person.age)-17)) + 1;
-    person.salary = personProp.randSalary(person.yearsExperience, person.job);
-    
-    if (Math.floor(Math.random() * 2) == 0) {
-        person.name = {
-            first: personProp.randMale(),
-            last: personProp.randSurname()
-        }
-        person.gender = "Male"
-    }
+    person.employment = personProp.randEmployment(person.age);
+    person.gender = personProp.randGender()
+
+    if (person.gender == "Male")
+        person.name.first = personProp.randMale()
+    else if (person.gender == "Female")
+        person.name.first = personProp.randFemale()
+
     else {
-        person.name = {
-            first: personProp.randFemale(),
-            last: personProp.randSurname()
-        }
-        person.gender = "Female"
+        if (Math.random <= .5)
+            person.name.first = personProp.randMale();
+        else
+            person.name.first = personProp.randFemale();
     }
+    person.name.last = personProp.randSurname();
     return person;
 }
 

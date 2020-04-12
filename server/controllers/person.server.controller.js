@@ -1,4 +1,3 @@
-const Person = require('../models/person.server.model');
 const personMaker = require('../person_sources/person-constructor');
 
 exports.createPeople = (req, res) => {
