@@ -9,7 +9,8 @@ class PeopleDemo extends Component {
         super(props);
         this.state = {
             amount: 0,
-            people: []
+            people: [],
+            curAnswers: []
         }
         this.onChange = this.onChange.bind(this);
     }
@@ -23,25 +24,113 @@ class PeopleDemo extends Component {
             return (
                 <tr key={i}>
                     <td>{i + 1}</td>
-                    <td>{this.state.people[i].name.first} {this.state.people[i].name.last}</td>
-                    <td>{this.state.people[i].age}</td>
-                    <td>{this.state.people[i].maritalStatus}</td>
-                    <td>{this.state.people[i].householdSize}</td>
-                    <td>{this.state.people[i].education}</td>
-                    <td>{this.state.people[i].job}</td>
-                    <td>{this.state.people[i].location}</td>
-                    <td>{this.state.people[i].yearsExperience}</td>
-                    <td>{'$' + this.formatNumber(this.state.people[i].salary)}</td>
-                    <td>{this.state.people[i].gender}</td>
+                    <td>{curPerson.name.first} {curPerson.name.last}</td>
+                    <td>{curPerson.age}</td>
+                    <td>{curPerson.maritalStatus}</td>
+                    <td>{curPerson.householdSize}</td>
+                    <td>{curPerson.education}</td>
+                    <td>{curPerson.job}</td>
+                    <td>{curPerson.location}</td>
+                    <td>{curPerson.yearsExperience}</td>
+                    <td>{'$' + this.formatNumber(curPerson.salary)}</td>
+                    <td>{curPerson.gender}</td>
+                    <td><button onClick={(e) => this.getAnswers(e, curPerson)}>View Response</button></td>
                 </tr>
             )
         })
+    }
 
+    getAnswers = (e, person) => {
+        e.preventDefault();
+        this.setState({
+            curAnswers: person.answers
+        });
+        this.forceUpdate();
+    }
+
+    answers = () => {
+        return this.state.curAnswers.map((curAnswer, i) => {
+            return (
+                <tr key={i}>
+                    <td>{curAnswer.prompt}</td>
+                    <td>{curAnswer.answer}</td>
+                </tr>
+            )
+        })
     }
 
     createPeople = (e) => {
         e.preventDefault();
-        axios.get('/api/people/' + this.state.amount)
+        let request = {
+            questions: [{
+                _id: "5e8ee3fe04381d3074307abf",
+                prompt: "My Question",
+                category: "My Category",
+                answers: [
+                    {
+                        _id: "5e8ee3fe04381d3074307ac0",
+                        text: "My 1st Unlikely Answer",
+                        weight: 2
+                    },
+                    {
+                        _id: "5e8ee3fe04381d3074307ac1",
+                        text: "My 2nd Unlikely Answer",
+                        weight: 1
+                    },
+                    {
+                        _id: "5e8ee3fe04381d3074307ac2",
+                        text: "My Likely Answer",
+                        weight: 5
+                    }
+                ],
+                totalWeight: 8,
+                __v: 1
+            },
+            {
+                _id: "5e8ee66f3f3b673758f979da",
+                prompt: "My 2nd Question",
+                category: "Examples",
+                answers: [
+                    {
+                        _id: "5e8ee66f3f3b673758f979db",
+                        text: "Answer A",
+                        weight: 1
+                    },
+                    {
+                        _id: "5e8ee66f3f3b673758f979dc",
+                        text: "Answer B",
+                        weight: 2
+                    }
+                ],
+                totalWeight: 3,
+                __v: 0
+            },
+            {
+                _id: "5e8f367dcaaa4552c8851b44",
+                prompt: "Here's another question?",
+                category: "My Category",
+                answers: [
+                    {
+                        _id: "5e8f367dcaaa4552c8851b45",
+                        text: "yes",
+                        weight: 2
+                    },
+                    {
+                        _id: "5e8f367dcaaa4552c8851b46",
+                        text: "no",
+                        weight: 3
+                    },
+                    {
+                        _id: "5e8f367dcaaa4552c8851b47",
+                        text: "maybe?",
+                        weight: 5
+                    }
+                ],
+                totalWeight: 10,
+                __v: 0
+            }]
+        }
+        axios.post('/api/people/getAnswers/' + this.state.amount, request)
             .then(res => {
                 this.setState({
                     people: res.data.people
@@ -62,43 +151,48 @@ class PeopleDemo extends Component {
                 <Link to={'/controlpanel'}>Return to Control Panel</Link>
                 <h3>Person creation demo</h3>
                 <p>{this.state.regError}</p>
-                <form onSubmit={this.onSubmit}>
-                    <div>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td style={{ width: 100 }}>Amount:</td>
-                                    <td><input type="number"
-                                        name="amount"
-                                        value={this.state.amount}
-                                        onChange={this.onChange}
-                                    /></td>
-                                </tr>
-                            </tbody>
-                            <button onClick={this.createPeople}>Create People</button>
-                        </table>
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style={{ width: 100 }}>Amount:</td>
+                                <td><input type="number"
+                                    name="amount"
+                                    value={this.state.amount}
+                                    onChange={this.onChange}
+                                /></td>
+                            </tr>
+                        </tbody>
                         <table>
                             <thead>
-                                <tr>
-                                    <td>Entry</td>
-                                    <td>Name</td>
-                                    <td>Age</td>
-                                    <td>Marital Status</td>
-                                    <td>Household Size</td>
-                                    <td>Education</td>
-                                    <td>Job</td>
-                                    <td>Location</td>
-                                    <td>Years Experience</td>
-                                    <td>Salary</td>
-                                    <td>Gender</td>
-                                </tr>
+                                <td>Questions</td>
+                                <td>Answer</td>
                             </thead>
                             <tbody>
-                                {this.people()}
+                                {this.answers()}
                             </tbody>
                         </table>
-                    </div>
-                </form>
+                        <button onClick={this.createPeople}>Create People</button>
+                    </table>
+                    <table>
+                        <thead>
+                            <td>Entry</td>
+                            <td>Name</td>
+                            <td>Age</td>
+                            <td>Marital Status</td>
+                            <td>Household Size</td>
+                            <td>Education</td>
+                            <td>Job</td>
+                            <td>Location</td>
+                            <td>Years Experience</td>
+                            <td>Salary</td>
+                            <td>Gender</td>
+                        </thead>
+                        <tbody>
+                            {this.people()}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }
