@@ -86,8 +86,6 @@ class Sampling extends Component {
 
       var displayRows = [];
       var sDisplay = <div></div>
-      var textBox = <div></div>
-
 
       if (this.state.samplingMethod === 'srs') {
         displayRows = [
@@ -130,24 +128,10 @@ class Sampling extends Component {
               <button className="button reset" type="button" value="Submit" onClick={() => this.resetSample()}>Reset</button>
               <button className="button generate" type="button" value="Submit" onClick={() => this.generate('srs')}>Generate Simple Random Sample</button>
             </div>
-
             <div className='page-body'>
               {tableDisplay}
             </div>
           </div>
-
-        textBox = 
-        <div>
-        	<div className='page-header'>
-            Simple Random Sample
-          </div>
-          <div className='section-body2'>
-              The simple random sample is the most basic form of sampling. 
-              Every sampling unit has an equal probability of being selected. 
-              Simple random samples are typically representative of the population.
-          </div>
-        </div>
-
       } else if (this.state.samplingMethod === 'stratified') {
         displayRows = [
           {id: 1, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
@@ -197,23 +181,6 @@ class Sampling extends Component {
               {tableDisplay}
             </div>
           </div>
-
-
-          textBox = 
-          <div>
-            <div className='page-header'>
-              Stratified Sample
-            </div>
-            <div className='section-body2'>
-              A stratified sample involves partitioning the population into subgroups called “strata.”
-              Then, a simple random sample is taken from each strata.
-              The variable chosen to stratify on is typically one that may influence the variable of interest.
-              This method ensures that people from each group (strata) are selected.
-              The people within strata are typically more similar than between strata. 
-            </div>
-          </div>
-
-
       } else if (this.state.samplingMethod === 'cluster') {
         displayRows = [
           {id: 1, r: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
@@ -262,19 +229,6 @@ class Sampling extends Component {
               {tableDisplay}
             </div>
           </div>
-
-          textBox = 
-          <div>
-            <div className='page-header'>
-              Cluster Sampling
-            </div>
-            <div className='section-body2'>
-              A cluster sample involves partitioning the population into different groups called “clusters.”
-              Then, clusters are selected using simple random sampling. 
-              All the units within the selected clusters are then selected for the sample.
-              Each cluster should ideally be representative of the population.
-            </div>
-          </div>
       }
 
 
@@ -297,10 +251,7 @@ class Sampling extends Component {
                   Cluster Sampling
                 </button>
               </div>
-
               {sDisplay}
-              {textBox}
-
             </div>
         </div>
       );

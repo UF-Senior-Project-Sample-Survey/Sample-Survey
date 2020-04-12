@@ -108,23 +108,20 @@ class AddQuestion extends Component {
 
     render() {
         return (
-            <div className = 'formContainer'>
+            <div className="entryTable">
                 <Link to={'/controlpanel'}>Return to Control Panel</Link>
-                <h4>Create New Question</h4>
+                <h3>Create New Question</h3>
                 <p>{this.state.regError}</p>
                 <form onSubmit={this.onSubmit}>
                     <div>
-                        <label>Prompt:</label>
+                        <h4>Prompt:</h4>
                         <input type="text"
-                            style={{width: '700px', marginLeft: '20px'}}
                             name="prompt"
                             value={this.state.prompt}
                             onChange={this.onChange}
                         />
-                        <br/>
-                        <label>Category:</label>
+                        <h4>Category:</h4>
                         <input type="text"
-                            style={{width: '700px', marginLeft: '20px'}}
                             name="category"
                             value={this.state.category}
                             onChange={this.onChange}
@@ -143,6 +140,9 @@ class AddQuestion extends Component {
                             onSubmit={this.onSubmit}
                         />
                     </div>
+
+
+
                 </form>
             </div>
         )
