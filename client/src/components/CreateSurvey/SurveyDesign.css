@@ -1,6 +1,6 @@
 
-.formContainer form .selection {
-    min-width: 350px;
+.formContainer form .selectiona {
+    min-width: 400px;
     font-size: large;
     font-weight: 600;
     height: 100px;
@@ -11,7 +11,7 @@
 }
 
 .formContainer form .selections {
-    min-width: 350px;
+    min-width: 400px;
     font-size: large;
     font-weight: 600;
     height: 100px;
@@ -21,7 +21,7 @@
     border-color: rgb(113, 158, 197);
 }
 
-.formContainer form .selection:hover {
+.formContainer form .selectiona:hover {
     cursor: pointer;
     background-color: rgb(89, 173, 247);
 }

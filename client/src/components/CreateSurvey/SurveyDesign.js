@@ -33,20 +33,20 @@ class SurveyDesign extends Component {
 
         if (this.state.samplingmethod === 'srs') {
             srsbutton = "button selections";
-            stratbutton = "button selection";
-            clusterbutton = "button selection";
+            stratbutton = "button selectiona";
+            clusterbutton = "button selectiona";
         } else if (this.state.samplingmethod === 'stratified') {
-            srsbutton = "button selection";
+            srsbutton = "button selectiona";
             stratbutton = "button selections";
-            clusterbutton = "button selection";
+            clusterbutton = "button selectiona";
         } else if (this.state.samplingmethod === 'cluster') {
-            srsbutton = "button selection";
-            stratbutton = "button selection";
+            srsbutton = "button selectiona";
+            stratbutton = "button selectiona";
             clusterbutton = "button selections";
         } else {
-            srsbutton = "button selection";
-            stratbutton = "button selection";
-            clusterbutton = "button selection";
+            srsbutton = "button selectiona";
+            stratbutton = "button selectiona";
+            clusterbutton = "button selectiona";
         }
 
         return (
