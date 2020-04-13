@@ -215,19 +215,19 @@ class Sampling extends Component {
               A stratified sample involves partitioning the population into subgroups called “strata”.
               The variable chosen to stratify on is typically one that may influence the variable of interest.
               This method ensures that people from each group (strata) are selected.
-              The people within strata are typically more similar than between strata. 
+              The people within a stratum are typically more similar than between strata. 
               <br></br><br></br>
               Steps: <br></br>
               1. Partition your population into subgroups called "strata". <br></br>
-              2. Determine the size of each strata within the population. <br></br>
-              3. Take simple random samples within each strata, selecting a number of people that is representative of the strata's portion of the overall population. 
-              <br></br><div className = 'indent'>For example, say there are 2 stratas in a population. Strata 1 contains 100 sampling units and strata 2 contains 50 sampling units. 
-              To take a stratified sample of 30 from this population, you would calculate that strata 1 makes up 100/150, or 2/3, of the population and strata 2 makes up 50/150, or 1/3, of the population.
-              That means that you would want 2/3 of your sample to come from strata 1 and 1/3 to come from strata 2. 
-              Thus, you would take a simple random sample of 2/3 * 30 = 20 from strata 1 and a sample of 1/3 * 30 = 10 from strata 2 to form a stratified sample of 30.</div>
+              2. Determine the size of each stratum within the population. <br></br>
+              3. Take simple random samples within each stratum, selecting a number of people that is representative of the stratum's portion of the overall population. 
+              <br></br><div className = 'indent'>For example, say there are 2 strata in a population. Stratum 1 contains 100 sampling units and stratum 2 contains 50 sampling units. 
+              To take a stratified sample of 30 from this population, you would calculate that stratum 1 makes up 100/150, or 2/3, of the population and stratum 2 makes up 50/150, or 1/3, of the population.
+              That means that you would want 2/3 of your sample to come from stratum 1 and 1/3 to come from stratum 2. 
+              Thus, you would take a simple random sample of 2/3 * 30 = 20 from stratum 1 and a sample of 1/3 * 30 = 10 from stratum 2 to form a stratified random sample of 30.</div>
               <br></br><br></br>
               To use the tool, click "Generate Stratified Random Sample" to see an example of a stratified random sample of 30 generated from this population.<br></br><br></br>
-              In our visualization, each region (separated by a dotted line) represents a different strata within a population of 100, forming 10 stratas of 10 sampling units.
+              In our visualization, each region (separated by a dotted line) represents a different stratum within a population of 100, forming 10 strata of 10 sampling units.
             </div>
           </div>
 
@@ -287,7 +287,7 @@ class Sampling extends Component {
               Cluster Sampling
             </div>
             <div className='section-body2'>
-              A cluster sample involves partitioning the population into different groups called “clusters.”
+              A cluster sample involves partitioning the population into different groups called “clusters”.
               Each cluster should ideally be representative of the population. Clusters are usually based on location, as one of the benefits of using cluster sampling is reducing the cost of taking the sample.
               <br></br><br></br>
               Steps:<br></br>
@@ -296,7 +296,7 @@ class Sampling extends Component {
               3. Of the selected clusters, you can either include all of the sampling units within the cluster in the sample, or you can perform multi-stage cluster sampling and take simple random samples within the clusters to form your sample.
               <br></br><br></br>
               To use our visualization tool, select "Generate Cluster Sample" to see a single-stage cluster sample taken from a population of 100. Since 3 clusters are being randomly selected, we end up with a sample of 30.
-              <br></br><br></br>In our visualization, each region (separated by a dotted line) represents a different cluster within a population of 100, forming 10 cluster of 10 sampling units.
+              <br></br><br></br>In our visualization, each region (separated by a dotted line) represents a different cluster within a population of 100, forming 10 clusters of 10 sampling units.
             </div>
           </div>
       }
