@@ -31,7 +31,7 @@ class NavBar extends React.Component {
         ;
 
         instructorHeader = <ul className="landing">
-                            <Link to="/home">
+                            <Link to="/createsurvey">
                                 <div className="headerText">
                                     Sample Survey
                                 </div>

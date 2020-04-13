@@ -13,12 +13,12 @@ class About extends Component {
                   <div className="h1">About</div>
                   <div className="section-body2">
                     When designing a survey, careful consideration is made in wording questions and answer options. 
-                    The goal is to yield responses that correctly represent what is being asked and reduce the chances of nonresponse.
+                    The goal is to yield responses that correctly represent what is being asked and to reduce the chance of nonresponse.
                     Selecting a sample is equally as important. However, it is harder for students to get a sense of this in practice.
                     <br/>
                     <br/>
                     Our website provides a way for students to select from our preset questionnaires and build their own.
-                    Then, they can decide what sampling method they will like to use, and we will build their own sample responses.
+                    Then, they can decide what sampling method they would like to use, and we will build their own sample responses for the questionnaire they designed.
                     The final dataset will contain the answer responses to the selected questions for every "participant" in the form of a csv file.
                   </div>
                   <div className="h2">How it Works</div>
