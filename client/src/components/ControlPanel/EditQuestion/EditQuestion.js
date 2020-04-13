@@ -118,20 +118,23 @@ class AddQuestion extends Component {
 
     render() {
         return (
-            <div className="entryTable">
+            <div className="formContainer">
                 <Link to={'/controlpanel'}>Return to Control Panel</Link>
-                <h3>Create New Question</h3>
+                <h4>Edit Question</h4>
                 <p>{this.state.regError}</p>
                 <form onSubmit={this.onSubmit}>
                     <div>
-                        <h4>Prompt:</h4>
+                        <label>Prompt:</label>
                         <input type="text"
+                            style={{width: '700px', marginLeft: '20px'}}
                             name="prompt"
                             value={this.state.prompt}
                             onChange={this.onChange}
                         />
-                        <h4>Category:</h4>
+                        <br/>
+                        <label>Category:</label>
                         <input type="text"
+                            style={{width: '700px', marginLeft: '20px'}}
                             name="category"
                             value={this.state.category}
                             onChange={this.onChange}

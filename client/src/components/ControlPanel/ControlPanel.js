@@ -32,7 +32,7 @@ class ControlPanel extends Component {
         return this.state.questions.map((curQuestion, i) => {
             return (
                 <tr className="controlRow" key={i}>
-                    <td><Link className="controlLink" to={'question/view/' + curQuestion._id}>{curQuestion.prompt}</Link></td>
+                    <td>{curQuestion.prompt}</td>
                     <td><Link className="controlLink" to={'question/edit/' + curQuestion._id}>Edit</Link></td>
                     <td><button onClick={() => this.deleteQuestion(curQuestion._id)}>Delete</button></td>
                 </tr>
@@ -58,18 +58,18 @@ class ControlPanel extends Component {
             <div className='controlTab'>
                 <NavBar />
                 <div className="custom-container">
-                    <Link className="controlLink" to='peopleDemo' style={{ marginTop: 20 }}> People Maker Demo</Link> <br /> <br />
-                    <Link className="controlLink" to='question/create' style={{ marginTop: 20 }}>Create Question</Link> 
-                    <table style={{ width: 1000}}>
-                        <thead>
-                            <tr className="controlRow">
-                                <th>Questions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.questions()}
-                        </tbody>
-                    </table>
+                    <div className="buttonContainer">
+                        <Link className="demoButton" to='peopleDemo'> People Maker Demo</Link> 
+                        <Link className="createButton" to='question/create'>Create Question</Link>
+                    </div>
+                    <div className="tableContainer">
+                        <h3>Questions</h3>
+                        <table style={{ width: 1000}}>
+                            <tbody>
+                                {this.questions()}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         )

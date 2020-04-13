@@ -12,3 +12,35 @@
     text-align: left;
     padding-right: 4px;
 }
+
+.formContainer form .selection {
+    min-width: 150px;
+    font-size: medium;
+    font-weight: 600;
+    height: 30px;
+    margin: 10px;
+    background-color: rgb(142, 198, 247);
+    border-radius: 10px;
+    border-color: rgb(113, 158, 197);
+}
+
+.formContainer form .selection:hover {
+    cursor: pointer;
+    background-color: rgb(89, 173, 247);
+}
+
+.formContainer form label {
+    font-size: large;
+}
+
+.formContainer form .myLink {
+    padding-top: 10px;
+    font-size: medium;
+    margin-bottom: 25px;
+}
+
+.formContainer {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

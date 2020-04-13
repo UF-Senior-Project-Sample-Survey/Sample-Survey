@@ -1,23 +1,24 @@
 .controlTab .custom-container {
-    padding-top: 80px;
-    font-size: x-large;
+    padding-top: 100px;
+    font-size: large;
     font-weight: 600;
     min-width: 600px;
-    background-color: wheat;
+    background-color: white;
     width: 100vw;
     padding-left: 20px;
 }
 
 .controlTab{
-    background-color: wheat;
+    background-color: white;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-size: calc(9px + 2vmin);
     color: #282c34;
 }
+
 .controlRow{
-    background-color: lavender;
+    background-color: rgb(224, 240, 255);
 }
 
 .controlRow td{
@@ -32,4 +33,45 @@
     border-color: black;
     border-width: 2px;
     border-style: solid;
+}
+
+.demoButton {
+    display: block;
+    color: black;
+    margin: 50px;
+    margin-bottom: 0px;
+    background-color: rgb(142, 198, 247);
+    width: 300px;
+    float: right;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.createButton {
+    display: block;
+    color: black;
+    margin: 50px;
+    margin-bottom: 0px;
+    background-color: rgb(142, 198, 247);
+    width: 300px;
+    float: left;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.createButton:hover {
+    background-color: rgb(89, 173, 247);
+}
+
+.demoButton:hover {
+    background-color: rgb(89, 173, 247);
+}
+
+.tableContainer {
+    display: inline-block;
+}
+
+.buttonContainer{
+    width: 1000px;
+    display:inline-block;
 }
