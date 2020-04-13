@@ -18,7 +18,7 @@ class NavBar extends React.Component {
         var studentHeader, instructorHeader;
 
         studentHeader = <ul className="landing">
-                            <Link to="/createsurvey">
+                            <Link to="/home">
                                 <div className="headerText">
                                     Sample Survey
                                 </div>
