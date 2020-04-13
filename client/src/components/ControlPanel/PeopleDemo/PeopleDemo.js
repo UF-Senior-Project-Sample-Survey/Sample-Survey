@@ -143,9 +143,10 @@ class PeopleDemo extends Component {
         return (
             <div className="entryTable">
                 <Link to={'/controlpanel'}>Return to Control Panel</Link>
-                <h3>Person creation demo</h3>
+                <h3>Person Creation Demo</h3>
                 <p>{this.state.regError}</p>
                 <div>
+
                     <table>
                         <tbody>
                             <tr>
