@@ -28,7 +28,7 @@ class Sampling extends Component {
     generate(method) {
       if (method === 'srs') {
         var srs = [];
-        for (var i = 0; i < 20; i++) {
+        for (var i = 0; i < 30; i++) {
           var newNum = Math.floor((Math.random() * 100) + 1);
           if (srs.includes(newNum)) {
             i--;
@@ -43,7 +43,7 @@ class Sampling extends Component {
       } else if (method === 'stratified') {
         var strat = [];
         for (var i = 1; i < 11; i++) {
-          for (var j = 0; j < 2; j++) {
+          for (var j = 0; j < 3; j++) {
             var newNum = i + '-' + Math.floor((Math.random() * 10) + 1);
             if (strat.includes(newNum)) {
               j--;
@@ -59,7 +59,7 @@ class Sampling extends Component {
       } else if (method === 'cluster') {
         var cluster = [];
         
-        for(var i = 0; i < 2; i++) {
+        for(var i = 0; i < 3; i++) {
           var s = Math.floor((Math.random() * 10) + 1);
           if (cluster.includes(s)) {
             i--;
@@ -138,13 +138,20 @@ class Sampling extends Component {
 
         textBox = 
         <div>
-        	<div className='page-header'>
+        	<div className='page-header-sample'>
             Simple Random Sample
           </div>
           <div className='section-body2'>
               The simple random sample is the most basic form of sampling. 
               Every sampling unit has an equal probability of being selected. 
+              For example, when generating a sample of 30 out of a population of 100, each sampling unit has a probability of .30 of being selected.
               Simple random samples are typically representative of the population.
+              <br></br>
+              <br></br>
+              To perform a simple random sample of 30 out of 100, simply assign a number from 1-100 to each unit, generate 30 random numbers from 1-100, then choose the units corresponding with those 30 generated random numbers to form your sample.
+              <br></br>
+              <br></br>
+              To see an example of a simple random sample, please click "Generate Random Sample" to see our tool generate and visualize a simple random sample of 30 out of a population of 100.
           </div>
         </div>
 
@@ -201,15 +208,26 @@ class Sampling extends Component {
 
           textBox = 
           <div>
-            <div className='page-header'>
+            <div className='page-header-sample'>
               Stratified Sample
             </div>
             <div className='section-body2'>
-              A stratified sample involves partitioning the population into subgroups called “strata.”
-              Then, a simple random sample is taken from each strata.
+              A stratified sample involves partitioning the population into subgroups called “strata”.
               The variable chosen to stratify on is typically one that may influence the variable of interest.
               This method ensures that people from each group (strata) are selected.
               The people within strata are typically more similar than between strata. 
+              <br></br><br></br>
+              Steps: <br></br>
+              1. Partition your population into subgroups called "strata". <br></br>
+              2. Determine the size of each strata within the population. <br></br>
+              3. Take simple random samples within each strata, selecting a number of people that is representative of the strata's portion of the overall population. 
+              <br></br><div className = 'indent'>For example, say there are 2 stratas in a population. Strata 1 contains 100 sampling units and strata 2 contains 50 sampling units. 
+              To take a stratified sample of 30 from this population, you would calculate that strata 1 makes up 100/150, or 2/3, of the population and strata 2 makes up 50/150, or 1/3, of the population.
+              That means that you would want 2/3 of your sample to come from strata 1 and 1/3 to come from strata 2. 
+              Thus, you would take a simple random sample of 2/3 * 30 = 20 from strata 1 and a sample of 1/3 * 30 = 10 from strata 2 to form a stratified sample of 30.</div>
+              <br></br><br></br>
+              To use the tool, click "Generate Stratified Random Sample" to see an example of a stratified random sample of 30 generated from this population.<br></br><br></br>
+              In our visualization, each region (separated by a dotted line) represents a different strata within a population of 100, forming 10 stratas of 10 sampling units.
             </div>
           </div>
 
@@ -265,14 +283,20 @@ class Sampling extends Component {
 
           textBox = 
           <div>
-            <div className='page-header'>
+            <div className='page-header-sample'>
               Cluster Sampling
             </div>
             <div className='section-body2'>
               A cluster sample involves partitioning the population into different groups called “clusters.”
-              Then, clusters are selected using simple random sampling. 
-              All the units within the selected clusters are then selected for the sample.
-              Each cluster should ideally be representative of the population.
+              Each cluster should ideally be representative of the population. Clusters are usually based on location, as one of the benefits of using cluster sampling is reducing the cost of taking the sample.
+              <br></br><br></br>
+              Steps:<br></br>
+              1. Partition the population into clusters and assign numbers to them. <br></br>
+              2. Generate random numbers to select clusters through simple random sampling.<br></br>
+              3. Of the selected clusters, you can either include all of the sampling units within the cluster in the sample, or you can perform multi-stage cluster sampling and take simple random samples within the clusters to form your sample.
+              <br></br><br></br>
+              To use our visualization tool, select "Generate Cluster Sample" to see a single-stage cluster sample taken from a population of 100. Since 3 clusters are being randomly selected, we end up with a sample of 30.
+              <br></br><br></br>In our visualization, each region (separated by a dotted line) represents a different cluster within a population of 100, forming 10 cluster of 10 sampling units.
             </div>
           </div>
       }
@@ -297,10 +321,14 @@ class Sampling extends Component {
                   Cluster Sampling
                 </button>
               </div>
-
-              {sDisplay}
-              {textBox}
-
+              <div className = 'learn'>
+                <div className = 'simulator'>
+                  {sDisplay}
+                </div>
+                <div className = 'explanation'>
+                  {textBox}
+                </div>
+              </div>
             </div>
         </div>
       );
