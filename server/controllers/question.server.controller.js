@@ -4,10 +4,10 @@ const Question = require('../models/question.server.model')
 exports.addQuestion = function (req, res) {
     let question = new Question(req.body);
     question.totalWeight = 0;
-    question.totalWeightStratified = [0,0,0,0,0]
+    question.totalWeightStratified = [0,0,0]
     for (i in question.answers){
         question.totalWeight += question.answers[i].weight;
-        for(var j = 0; j < 5; j++) {
+        for(var j = 0; j < 3; j++) {
             question.totalWeightStratified[j] += question.answers[i].weightStratified[j];
         }
     }
@@ -42,10 +42,10 @@ exports.updateQuestion = (req, res) => {
         question.answers = req.body.answers;
         question.totalWeight = 0;
         // mf
-        question.totalWeightStratified=[0,0,0,0,0]
+        question.totalWeightStratified=[0,0,0]
         for (i in question.answers){
             question.totalWeight += question.answers[i].weight;
-            for(var j = 0; j < 5; j++) {
+            for(var j = 0; j < 3; j++) {
                 question.totalWeightStratified[j] += question.answers[i].weightStratified[j];
             }
         }

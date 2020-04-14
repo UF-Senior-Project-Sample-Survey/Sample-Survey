@@ -64,20 +64,6 @@ class AddQuestion extends Component {
             answers: tempAnswers
         })
     }
-    onChangeAnswerWeight3 = (e) => {
-        var tempAnswers = this.state.answers;
-        tempAnswers[e.target.name].weightStratified[3] = e.target.value;
-        this.setState({
-            answers: tempAnswers
-        })
-    }
-    onChangeAnswerWeight4 = (e) => {
-        var tempAnswers = this.state.answers;
-        tempAnswers[e.target.name].weightStratified[4] = e.target.value;
-        this.setState({
-            answers: tempAnswers
-        })
-    }
     onSubmit = (e) => {
         e.preventDefault();
         const updatedQuestion = {
@@ -151,22 +137,6 @@ class AddQuestion extends Component {
                             onChange={this.onChangeAnswerWeight2}
                         />
                     </td>
-                    <td>
-                        <input type="number"
-                            name={i}
-                            placeholder='0'
-                            value={currAnswer.weightStratified[3]}
-                            onChange={this.onChangeAnswerWeight3}
-                        />
-                    </td>
-                    <td>
-                        <input type="number"
-                            name={i}
-                            placeholder='0'
-                            value={currAnswer.weightStratified[4]}
-                            onChange={this.onChangeAnswerWeight4}
-                        />
-                    </td>
                     <td><button onClick={this.deleteAnswer} name={i}>Delete</button></td>
                 </tr>
             )
@@ -218,7 +188,7 @@ class AddQuestion extends Component {
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>Answers</td> <td>Weight</td> <td>Weight for Stratum 1</td> <td>Weight for Stratum 2</td> <td>Weight for Stratum 3</td> <td>Weight for Stratum 4</td> <td>Weight for Stratum 5</td>
+                                    <td>Answers</td> <td>Weight</td> <td>Weight for Stratum 1</td> <td>Weight for Stratum 2</td> <td>Weight for Stratum 3</td>
                                 </tr>
                                 {this.answers()}
                             </tbody>
