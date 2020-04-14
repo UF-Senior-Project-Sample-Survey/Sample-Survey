@@ -8,8 +8,12 @@ var questionSchema = new Schema({
     totalWeight:{type: Number},
     answers:[{
         text: {type: String},
-        weight:{type: Number}
-    }]
+        weight:{type: Number}, 
+        weightStratified: [{type: Number}]
+    }],
+    totalWeightStratified:[
+        {type: Number}
+    ]
 });
 
 

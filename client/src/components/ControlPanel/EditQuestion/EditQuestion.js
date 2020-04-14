@@ -43,6 +43,41 @@ class AddQuestion extends Component {
             answers: tempAnswers
         })
     }
+    onChangeAnswerWeight0 = (e) => {
+        var tempAnswers = this.state.answers;
+        tempAnswers[e.target.name].weightStratified[0] = e.target.value;
+        this.setState({
+            answers: tempAnswers
+        })
+    }
+    onChangeAnswerWeight1 = (e) => {
+        var tempAnswers = this.state.answers;
+        tempAnswers[e.target.name].weightStratified[1] = e.target.value;
+        this.setState({
+            answers: tempAnswers
+        })
+    }
+    onChangeAnswerWeight2 = (e) => {
+        var tempAnswers = this.state.answers;
+        tempAnswers[e.target.name].weightStratified[2] = e.target.value;
+        this.setState({
+            answers: tempAnswers
+        })
+    }
+    onChangeAnswerWeight3 = (e) => {
+        var tempAnswers = this.state.answers;
+        tempAnswers[e.target.name].weightStratified[3] = e.target.value;
+        this.setState({
+            answers: tempAnswers
+        })
+    }
+    onChangeAnswerWeight4 = (e) => {
+        var tempAnswers = this.state.answers;
+        tempAnswers[e.target.name].weightStratified[4] = e.target.value;
+        this.setState({
+            answers: tempAnswers
+        })
+    }
     onSubmit = (e) => {
         e.preventDefault();
         const updatedQuestion = {
@@ -92,6 +127,46 @@ class AddQuestion extends Component {
                             onChange={this.onChangeAnswerWeight}
                         />
                     </td>
+                    <td>
+                        <input type="number"
+                            name={i}
+                            placeholder='0'
+                            value={currAnswer.weightStratified[0]}
+                            onChange={this.onChangeAnswerWeight0}
+                        />
+                    </td>
+                    <td>
+                        <input type="number"
+                            name={i}
+                            placeholder='0'
+                            value={currAnswer.weightStratified[1]}
+                            onChange={this.onChangeAnswerWeight1}
+                        />
+                    </td>
+                    <td>
+                        <input type="number"
+                            name={i}
+                            placeholder='0'
+                            value={currAnswer.weightStratified[2]}
+                            onChange={this.onChangeAnswerWeight2}
+                        />
+                    </td>
+                    <td>
+                        <input type="number"
+                            name={i}
+                            placeholder='0'
+                            value={currAnswer.weightStratified[3]}
+                            onChange={this.onChangeAnswerWeight3}
+                        />
+                    </td>
+                    <td>
+                        <input type="number"
+                            name={i}
+                            placeholder='0'
+                            value={currAnswer.weightStratified[4]}
+                            onChange={this.onChangeAnswerWeight4}
+                        />
+                    </td>
                     <td><button onClick={this.deleteAnswer} name={i}>Delete</button></td>
                 </tr>
             )
@@ -111,7 +186,8 @@ class AddQuestion extends Component {
     addAnswer = () => {
         this.state.answers.push({
             text: '',
-            weight: ''
+            weight: '', 
+            weightStratified: []
         });
         this.forceUpdate();
     }
@@ -142,7 +218,7 @@ class AddQuestion extends Component {
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>Answers</td> <td>Weight</td>
+                                    <td>Answers</td> <td>Weight</td> <td>Weight for Stratum 1</td> <td>Weight for Stratum 2</td> <td>Weight for Stratum 3</td> <td>Weight for Stratum 4</td> <td>Weight for Stratum 5</td>
                                 </tr>
                                 {this.answers()}
                             </tbody>
@@ -153,9 +229,6 @@ class AddQuestion extends Component {
                             onSubmit={this.onSubmit}
                         />
                     </div>
-
-
-
                 </form>
             </div>
         )

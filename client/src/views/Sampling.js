@@ -130,7 +130,6 @@ class Sampling extends Component {
               <button className="button reset" type="button" value="Submit" onClick={() => this.resetSample()}>Reset</button>
               <button className="button generate" type="button" value="Submit" onClick={() => this.generate('srs')}>Generate Simple Random Sample</button>
             </div>
-
             <div className='page-body'>
               {tableDisplay}
             </div>

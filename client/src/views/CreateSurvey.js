@@ -17,7 +17,8 @@ class CreateSurvey extends Component {
       selectedQuestions: [],
       currentStep: 1,
       numParticipants: 0,
-      samplingMethod: 'srs'
+      samplingMethod: 'srs', 
+      strataVariable: 'gender'
     }
   }
 
@@ -139,6 +140,8 @@ class CreateSurvey extends Component {
           questions={this.state.selectedQuestions}
           numParticipants={this.state.numParticipants}
           goBack={this.goBack.bind(this)}
+          samplingMethod={this.state.samplingMethod}
+          strataVariable={this.state.strataVariable}
         />
       </div>
 

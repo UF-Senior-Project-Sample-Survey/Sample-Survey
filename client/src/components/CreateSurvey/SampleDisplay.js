@@ -24,19 +24,35 @@ class SampleDisplay extends Component {
     }
 
     getPeople = () => {
-        var people, csvData, csvHeaders;
-        let request = {questions: this.props.questions};
-        axios.post('/api/people/getAnswers/' + this.props.numParticipants, request)
-            .then(res => {
-                people = res.data.people;
-                csvData = this.formatDataToCSV(people);
-                csvHeaders = this.getCSVHeaders(people);
-                this.setState({
-                    mygrid: this.tranformData(people),
-                    people: people,
-                    button: <CSVLink filename="survey-data.csv" data={csvData} headers={csvHeaders}>Download CSV</CSVLink>
-                });
-            })
+        if (this.props.samplingMethod === 'stratified') {
+            var people, csvData, csvHeaders;
+            let request = {questions: this.props.questions};
+            axios.post('/api/people/getAnswersStratified/' + this.props.numParticipants + '/' + this.props.strataVariable, request)
+                .then(res => {
+                    people = res.data.people;
+                    csvData = this.formatDataToCSV(people);
+                    csvHeaders = this.getCSVHeaders(people);
+                    this.setState({
+                        mygrid: this.tranformData(people),
+                        people: people,
+                        button: <CSVLink filename="survey-data.csv" data={csvData} headers={csvHeaders}>Download CSV</CSVLink>
+                    });
+                })
+        } else {
+            var people, csvData, csvHeaders;
+            let request = {questions: this.props.questions};
+            axios.post('/api/people/getAnswers/' + this.props.numParticipants, request)
+                .then(res => {
+                    people = res.data.people;
+                    csvData = this.formatDataToCSV(people);
+                    csvHeaders = this.getCSVHeaders(people);
+                    this.setState({
+                        mygrid: this.tranformData(people),
+                        people: people,
+                        button: <CSVLink filename="survey-data.csv" data={csvData} headers={csvHeaders}>Download CSV</CSVLink>
+                    });
+                })
+        }
     }
 
     formatDataToCSV(people) {
