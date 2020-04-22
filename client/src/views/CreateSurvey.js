@@ -104,6 +104,12 @@ class CreateSurvey extends Component {
     });
   }
 
+  setStratVar(v) {
+    this.setState({
+      strataVariable: v
+    })
+  }
+
 
   render() {
     var display;
@@ -127,6 +133,7 @@ class CreateSurvey extends Component {
         <SurveyDesign
           setNumberofParticipants={this.setNumberofParticipants.bind(this)}
           setSamplingMethod={this.setSamplingMethod.bind(this)}
+          setStratVar={this.setStratVar.bind(this)}
         />
         <div className="bottombar">
           <button className="button next" type="button" value="Submit" onClick={() => this.continueSurvey()}>Next Step</button>
@@ -144,6 +151,8 @@ class CreateSurvey extends Component {
           strataVariable={this.state.strataVariable}
         />
       </div>
+
+    
 
     if (this.state.currentStep === 1) {
       display = surveyDesign;

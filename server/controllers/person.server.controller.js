@@ -16,7 +16,7 @@ exports.createPeopleStratified = (req, res) => {
         people: []
     }
 
-    var strataVariable = req.params.strataVariable;
+    var strataVariable = req.body.stratav;
     var amtBreakdown = [];
 
     strataValues = [];
@@ -114,9 +114,9 @@ exports.getAnswerStratified = (req, res) => {
         people: []
     }
 
-    var strataVariable = req.params.strataVariable;
+    var strataVariable = req.body.stratav;
+    var questions = req.body.questions;
     var amtBreakdown = [];
-
     strataValues = [];
     
     if (strataVariable == 'age') {
@@ -158,7 +158,6 @@ exports.getAnswerStratified = (req, res) => {
         }
         strataValues = ["Never Married", "Married", "Other"];
     }
-
     for (var i = 0; i < amtBreakdown.length; i++) {
         for (var j = 0; j < amtBreakdown[i]; j++) {
             var person; 
@@ -168,7 +167,6 @@ exports.getAnswerStratified = (req, res) => {
             } else { 
                 person = personMaker.createPersonStratified(strataVariable, strataValues[i], i); 
             }
-
             person.answers = [];
 
             for(var k = 0; k < questions.length; k++){ 
@@ -181,8 +179,8 @@ exports.getAnswerStratified = (req, res) => {
                 let weight = Math.floor(Math.random() * questions[k].totalWeightStratified[i]) + 1;
 
                 let tempAnswer; 
-
-                for (let l = 0; l < questions[k].answersStratified.length; l++){ 
+                console.log(questions[k])
+                for (let l = 0; l < questions[k].answers.length; l++){ 
                     weight -= questions[k].answers[l].weightStratified[i]; 
                     tempAnswer = questions[k].answers[l].text; 
                     if (weight <= 0)

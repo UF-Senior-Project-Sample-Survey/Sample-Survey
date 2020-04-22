@@ -7,7 +7,8 @@ class SurveyDesign extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            samplingmethod: ''
+            samplingmethod: '',
+            stratinput: <div></div>
         }
     }
 
@@ -16,9 +17,19 @@ class SurveyDesign extends Component {
         this.props.setNumberofParticipants(n);
     }
 
+    setStratVar() {
+        const v = this.stratValue.value;
+        this.props.setStratVar(v);
+    }
+
     setSamplingMethod(s) {
+        var b = <div></div>
+        if (s == 'stratified') {
+            b = <form><label>Stratify By?:</label><input type="text" style={{width: '200px', marginLeft: '20px'}} ref={(value) => this.stratValue = value} id="stratInput" name="stratInput" onChange={() => this.setStratVar()}></input></form>
+        }
         this.setState({
-            samplingmethod: s
+            samplingmethod: s,
+            stratinput: b
         });
         this.props.setSamplingMethod(s)
     }
@@ -49,6 +60,7 @@ class SurveyDesign extends Component {
             clusterbutton = "button selectiona";
         }
 
+
         return (
         <div className = 'formContainer'>
             <form>
@@ -66,6 +78,7 @@ class SurveyDesign extends Component {
                         Cluster Sampling
                     </button>
                 </div>
+                {this.state.stratinput}
                 <div className='myLink'><Link to="/samplingmethods" className="a">Learn more about these sampling methods</Link></div>
             </form>
         </div>

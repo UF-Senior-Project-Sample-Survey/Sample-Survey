@@ -26,8 +26,11 @@ class SampleDisplay extends Component {
     getPeople = () => {
         if (this.props.samplingMethod === 'stratified') {
             var people, csvData, csvHeaders;
-            let request = {questions: this.props.questions};
-            axios.post('/api/people/getAnswersStratified/' + this.props.numParticipants + '/' + this.props.strataVariable, request)
+            let request = {
+                            questions: this.props.questions, 
+                            stratav: this.props.strataVariable
+                          };
+            axios.post('/api/people/getAnswersStratified/' + this.props.numParticipants, request)
                 .then(res => {
                     people = res.data.people;
                     csvData = this.formatDataToCSVStratified(people);
