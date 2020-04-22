@@ -1,4 +1,6 @@
 const personMaker = require('../person_sources/person-constructor');
+const personProp = require('../person_sources/person-properties');
+const locations = require('../person_sources/States.json');
 
 exports.createPeople = (req, res) => {
     var response = {
@@ -163,9 +165,9 @@ exports.getAnswerStratified = (req, res) => {
             var person; 
             if (strataVariable == 'age') {
                 var randAge = Math.floor(Math.random() * (strataValues[i].high - strataValues[i].low + 1)) + strataValues[i].low; 
-                person = personMaker.createPersonStratified(strataVariable, randAge, i); 
+                person = personMaker.createPersonStratified(strataVariable, randAge, i + 1); 
             } else { 
-                person = personMaker.createPersonStratified(strataVariable, strataValues[i], i); 
+                person = personMaker.createPersonStratified(strataVariable, strataValues[i], i + 1); 
             }
             person.answers = [];
 
@@ -183,6 +185,61 @@ exports.getAnswerStratified = (req, res) => {
                 for (let l = 0; l < questions[k].answers.length; l++){ 
                     weight -= questions[k].answers[l].weightStratified[i]; 
                     tempAnswer = questions[k].answers[l].text; 
+                    if (weight <= 0)
+                        break;
+                }
+                
+                question.answer = tempAnswer;
+                person.answers.push(question);
+            }
+
+            response.people.push(person);
+        }
+    }
+    
+    res.json(response);
+}
+
+exports.getAnswersCluster = (req, res) => {
+    var response = {
+        people: []
+    }
+
+    var questions = req.body.questions;
+    var amtBreakdown = [];
+    var states = [];
+
+    for (var z = 0; z < 2; z++) {
+        states[z] = personProp.randState();
+        if (z == 1) {
+            if (states[0] == states[1]) {
+                z--;
+            }
+        }
+    }
+
+    amtBreakdown[0] = Math.floor(req.params.amount * ((Math.random() * .2) + .4));
+    amtBreakdown[1] = req.params.amount - amtBreakdown[0];
+
+    for (var i = 0; i < amtBreakdown.length; i++) {
+        for (var j = 0; j < amtBreakdown[i]; j++) {
+            var person = personMaker.createPersonCluster(i + 1, states[i]); 
+
+            person.answers = [];
+
+            for(var k = 0; k < questions.length; k++){ 
+            
+                let question = {
+                    prompt: questions[k].prompt, 
+                    answer: ''
+                };
+
+                let weight = Math.floor(Math.random() * questions[k].totalWeight) + 1;
+                let tempAnswer;
+
+                for (let l = 0; l < questions[k].answers.length; l++){
+                    weight -= questions[k].answers[l].weight;
+                    tempAnswer = questions[k].answers[l].text;
                     if (weight <= 0)
                         break;
                 }

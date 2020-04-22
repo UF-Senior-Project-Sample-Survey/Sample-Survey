@@ -14,4 +14,7 @@ router.route('/getAnswers/:amount')
 router.route('/getAnswersStratified/:amount')
   .post(person.getAnswerStratified);
 
+router.route('/getAnswersCluster/:amount')
+  .post(person.getAnswersCluster);
+
 module.exports = router;
