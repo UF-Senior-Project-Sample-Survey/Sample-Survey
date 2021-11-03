@@ -42,7 +42,7 @@
     "react-bootstrap": "^1.0.0",
     "react-csv": "^2.0.3",
     "react-datasheet": "^1.4.1",
-    "validator": "^12.2.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
