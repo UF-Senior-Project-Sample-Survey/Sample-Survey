@@ -33,7 +33,7 @@
     "datasheet": "^0.5.4",
     "express": "^4.17.1",
     "is-empty": "^1.2.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mdbreact": "^4.25.5",
     "mongoose": "^5.9.1",
     "morgan": "^1.9.1",
